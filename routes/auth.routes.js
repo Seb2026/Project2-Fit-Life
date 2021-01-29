@@ -40,6 +40,35 @@ router.post(`/signup`, (req,res,next) => {
 
 });
 
+router.get(`/login`, (req, res, next) => { // rendering to login form
+    res.render(`auth/login`);
+});
+
+router.post(`/login`, (req, res, next) => {
+    const { username, password } = req.body;
+
+    if (username === `` || password === ``) { // if user does not enter anything render back to login page with error message
+        res.render(`auth/login`, { errorMessage: `Please enter Username and Password` });
+        return;
+    }
+
+    User.findOne({ username }) // once user logs in find user in db with username
+    .then(foundUser => {
+        if (!foundUser) { // if username is not in db render back to login with error message
+            res.render(`auth/login`, { errorMessage: `No user was found. Try again`});
+            return;
+        } else if (bcryptjs.compareSync(password, foundUser.password)) { // if hashed password is correct to hashed password in db
+            res.redirect(`/`);
+        } else {
+            res.render(`auth/login`, { errorMessage: `Password is incorrect. Try again.`}); // means password is wrong so rendering back with error message
+        }
+    })
+    .catch(err => {
+        console.log(`Error logging in due to: ${err}`);
+    });
+    
+});
+
 
 
 
