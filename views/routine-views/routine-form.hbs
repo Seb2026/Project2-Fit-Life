@@ -5,40 +5,74 @@
 <label> Name:
     <input type="text" name="name">
 </label>
+
 <br>
+
 <label> Type of Training:
     <select name="typeOfTraining" multiple>
-<option ></option>
+
+<option value="Speed&Power">Speed & Power</option>
+<option value="Resistance">Resistance</option>
+<option value="HIIT">HIIT</option>
+<option value="Circuit">Circuit</option>
+
     </select>   
 </label>
+
 <br>
+
 <label> Exercises:
-    <input type="text" name="exercises">
+    <select name="exercises" multiple>
+        {{#each findExercises}}
+            <option value="{{_id}}">{{exerciseName}}</option>
+        {{/each}}
+    </select>
 </label>
+
 <br>
+
 <label> Intensity:
-    <input type="text" name="intensity">
+<select name="intensity">
+
+<option value="low">low</option>
+<option value="medium">medium</option>
+<option value="high">high</option>
+
+    </select>   
+
+
 </label>
+
 <br>
+
 <label> Amount Of Weights:
     <input type="number" name="amountOfWeight" placeholder="lbs" min='1'> lbs
 </label>
+
 <br>
+
 <label> Number Of Sets:
     <input type="number" name="numberOfSets" min='1'>
 </label>
+
 <br>
+
 <label> Number Of Reps:
     <input type="number" name="numberOfReps" min='1'>
 </label>
+
 <br>
+
 <label> Additional Equipment:
     <input type="text" name="additionalEquipment">
 </label>
+
 <br>
+
 <label> Time In Between Sets:
     <input type="number" name="timeInBetweenSets" min='0' placeholder="sec"> sec
 </label>
+
 <br>
 
 <button type='submit'>Save</button>
