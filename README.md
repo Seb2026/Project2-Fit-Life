@@ -1,27 +1,17 @@
-# Basic Express Template
+-COLLABORATORS: Sebastian Montoya, Anna Mosley, Ida Kronic Zaja;
 
-To use this template, follow these steps:
+-Fitness app which allowes user to create different workout routines, monitor his/her overall fitness goals and stay motivated with ideas for variousu healty recepies and informations about healty nutritional choices.
 
-```shell
-# clone the repo
-$ git clone https://github.com/ironhack-labs/lesson-code-basic-express-template.git
+-FEATURES:
 
-# enter inside the repo
-$ cd lesson-code-basic-express-template
 
-# install dependencies
-$ npm i
+-MODELS:
+  User model;
+  Exercise model;
+  Routine model
 
-# run the project (open it on the http://localhost:3000)
-$ npm run dev
-```
+-ROUTES:
 
-### Adapt to the project specifics
 
-- Update database name in the `./configs/db.config.js` file
-- Define your models in the `./models` folder
-- Create your routes in the `./routes` folder
-  - Don't forget to export routes, `module.exports = router;`
-  - Don't forget to import routes in the `app.js`, `app.use('/', require('./routes/myRoutesFile.routes'));`
+-LINK:
 
-**Happy coding!** :heart:
