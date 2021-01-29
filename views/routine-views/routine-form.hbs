@@ -1,0 +1,46 @@
+<h2>Create new Routine:</h2>
+
+<form action="/routine/create" method="POST">
+
+<label> Name:
+    <input type="text" name="name">
+</label>
+<br>
+<label> Type of Training:
+    <select name="typeOfTraining" multiple>
+<option ></option>
+    </select>   
+</label>
+<br>
+<label> Exercises:
+    <input type="text" name="exercises">
+</label>
+<br>
+<label> Intensity:
+    <input type="text" name="intensity">
+</label>
+<br>
+<label> Amount Of Weights:
+    <input type="number" name="amountOfWeight" placeholder="lbs" min='1'> lbs
+</label>
+<br>
+<label> Number Of Sets:
+    <input type="number" name="numberOfSets" min='1'>
+</label>
+<br>
+<label> Number Of Reps:
+    <input type="number" name="numberOfReps" min='1'>
+</label>
+<br>
+<label> Additional Equipment:
+    <input type="text" name="additionalEquipment">
+</label>
+<br>
+<label> Time In Between Sets:
+    <input type="number" name="timeInBetweenSets" min='0' placeholder="sec"> sec
+</label>
+<br>
+
+<button type='submit'>Save</button>
+
+</form>
