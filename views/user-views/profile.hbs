@@ -1,0 +1,10 @@
+<h2>Test profile page after logging in</h2>
+
+{{#if userInSession}}
+    <h3>Welcome to your fit joruney {{userInSession.username}}</h3>
+{{else}}
+    <h3>No user found!</h3>
+{{/if}}
+
+
+<a href="/profile">Test refresh!</a>

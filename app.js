@@ -11,6 +11,11 @@ const app = express();
 
 // require database configuration
 require("./configs/db.config");
+require(`./configs/session.config`)(app);
+
+// creating global variable for userInSession
+const bindUserToLocals = require(`./configs/localUser.config`);
+app.use(bindUserToLocals);
 
 // Middleware Setup
 app.use(logger("dev"));
@@ -33,7 +38,12 @@ app.locals.title = "Fitt life";
 //      |  |  |
 //      V  V  V
 app.use("/", require("./routes/index.routes"));
+
 app.use("/", require("./routes/routine.routes"))
 app.use("/", require("./routes/auth.routes"));
+
+
+
+app.use("/", require("./routes/user.routes"));
 
 module.exports = app;
