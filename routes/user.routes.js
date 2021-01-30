@@ -1,8 +1,10 @@
 const express = require("express");
 const router = express.Router();
 
+const routeGuard = require(`../configs/route-guard.config`);
 
-/* GET home page */
-router.get(`/profile`, (req, res, next) => res.render(`user-views/profile`));
+router.get(`/profile`, routeGuard, (req, res, next) => {
+    res.render(`user-views/profile`);
+});
 
 module.exports = router;
