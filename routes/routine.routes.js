@@ -67,7 +67,7 @@ router.get("/movies/:id/edit", (req, res, next)=>{
           res.render('routine-views/routine-edit', { foundRoutine, allExercises});
       });
     })
-    .catch(err => console.log(`Something went wrhong while finding movie to edit ${err}`))
+    .catch(err => console.log(`Something went wrong while finding movie to edit ${err}`))
 });
 
 
@@ -85,7 +85,7 @@ router.get("/movies/:id/edit", (req, res, next)=>{
 //         res.redirect(`/routine/${editedRoutine.id}`)
 
 //     })
-//     .catch(err => `Error occured while saving updated movie ${err}`)
+//     .catch(err => `Error occurred while saving updated movie ${err}`)
 // });
 
 
@@ -101,7 +101,7 @@ router.get("/routine/:id", (req, res, next)=>{
         console.log(`routine details${routineDetails}`)
         res.render("routine-views/routine-details", {routineDetails})
     })
-    .catch(err=>console.log(`Some error while gettin routine details ${err}`))
+    .catch(err=>console.log(`Some error while getting routine details ${err}`))
 })
 
 
