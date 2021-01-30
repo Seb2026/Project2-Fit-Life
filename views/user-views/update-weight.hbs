@@ -1,0 +1,20 @@
+<h2>Update Weight</h2>
+
+<form action="/update-weight" method="post">
+  <h4>Current weight: {{userInSession.weight}}</h4>  
+  <br>
+  <label>Weight is the same
+        <input type="checkbox" value="true" name="isWeightSame" >
+  </label>
+
+  <br>
+  <label>Updated weight:
+      <input type="number" name="weight">
+  </label>
+
+  <br>
+
+  <button>Save</button>  
+
+
+</form>

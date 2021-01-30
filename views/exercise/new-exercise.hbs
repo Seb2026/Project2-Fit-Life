@@ -1,13 +1,18 @@
 
 <form action="/exercise/create" method="POST">
-
-  <input type="text" name="exerciseName" placeholder="exercise name"> <br>
-  <input type="text" name="targetedBodyPart" placeholder="targeted body part"> <br>
-  <label>
+<label>name
+  <input type="text" name="exerciseName" placeholder="exercise name"> 
+  </label> <br>
+  <label>Targeted Body Part
+<input type="text" name="targetedBodyPart" placeholder="targeted body part"> 
+  </label><br>
+  <label> How to do it
   <textarea name="howToDoIt" placeholder="how to do it" cols='20' rows='10'></textarea> <br>
-
+  </label><br>
+  <label> Workout pic
+<input type="text" name= "exerciseImg" placeholder="workout pic"><br>
   </label>
-  <input type="text" name= "exerciseImg" placeholder="workout pic"><br>
+  
   <button type="submit">Save new Exercise</button>
 
 </form>

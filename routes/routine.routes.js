@@ -114,7 +114,7 @@ router.get("/routine/:id", (req, res, next)=>{
         console.log(`routine details${routineDetails}`)
         res.render("routine-views/routine-details", {routineDetails})
     })
-    .catch(err=>console.log(`Some error while gettin routine details ${err}`))
+    .catch(err=>console.log(`Some error while getting routine details ${err}`))
 })
 
 
