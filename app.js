@@ -39,9 +39,10 @@ app.locals.title = "Fitt life";
 //      V  V  V
 app.use("/", require("./routes/index.routes"));
 
-app.use("/", require("./routes/routine.routes"))
-app.use("/", require("./routes/auth.routes"));
-
+app.use(`/`, require(`./routes/auth.routes`));
+app.use(`/`, require(`./routes/exercise.routes`));
+app.use(`/`, require(`./routes/routine.routes`));
 app.use("/", require("./routes/user.routes"));
+
 
 module.exports = app;

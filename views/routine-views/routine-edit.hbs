@@ -1,9 +1,9 @@
-{{!-- <h2>Edit {{name}} routine:</h2>
+<h2>Edit {{foundRoutine.name}} routine:</h2>
 
-<form action="/routine/{{id}}/edit" method="POST">
+<form action="/routine/{{foundRoutine.id}}/edit" method="POST">
 
 <label> Name:
-    <input type="text" name="name" value="{{name}}">
+    <input type="text" name="name" value="{{foundRoutine.name}}">
 </label>
 
 <br>
@@ -50,35 +50,35 @@
 <br>
 
 <label> Amount Of Weights:
-    <input type="number" name="amountOfWeight" placeholder="lbs" min='1' value="{{amountOfWeight}}"> lbs
+    <input type="number" name="amountOfWeight" placeholder="lbs" min='1' value="{{foundRoutine.amountOfWeight}}"> lbs
 </label>
 
 <br>
 
 <label> Number Of Sets:
-    <input type="number" name="numberOfSets" min='1' value="{{numberOfSets}}">
+    <input type="number" name="numberOfSets" min='1' value="{{foundRoutine.numberOfSets}}">
 </label>
 
 <br>
 
 <label> Number Of Reps:
-    <input type="number" name="numberOfReps" min='1' value="{{numberOfReps}}">
+    <input type="number" name="numberOfReps" min='1' value="{{foundRoutine.numberOfReps}}">
 </label>
 
 <br>
 
 <label> Additional Equipment:
-    <input type="text" name="additionalEquipment" value="{{additionalEquipment}}">
+    <input type="text" name="additionalEquipment" value="{{foundRoutine.additionalEquipment}}">
 </label>
 
 <br>
 
 <label> Time In Between Sets:
-    <input type="number" name="timeInBetweenSets" min='0' placeholder="sec" value="{{timeInBetweenSets}}"> sec
+    <input type="number" name="timeInBetweenSets" min='0' placeholder="sec" value="{{foundRoutine.timeInBetweenSets}}"> sec
 </label>
 
 <br>
 
 <button type='submit'>Save</button>
 
-</form> --}}
+</form>

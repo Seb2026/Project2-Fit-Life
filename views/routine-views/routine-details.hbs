@@ -1,29 +1,31 @@
-{{!-- <h2>Details of {{routineDetails.name}}</h2>
+<h2>Details of {{routineDetails.name}}</h2>
 
 <div>
 
     <ul>
-        <li>Type of training: {{typeOfTraining}}</li>
+        <li>Type of training: {{routineDetails.typeOfTraining}}</li>
         <li>
-            <ol>Cast:
-             {{#each foundExercise.exercises}}
-                <li>{{exerciseName}}</li>
-                <li>{{targetedBodyPart}}</li>
+            <ol>Exercises:
+             {{#each routineDetails.exercises}}
+                <li><a href="/exercise/{{id}}">{{exerciseName}}</a>
+                    <p>{{targetedBodyPart}}</p>
+                </li>
+        
              {{/each}}
              </ol>
         </li>
-        <li>Intensity:  {{intensity}}</li>
-        <li>Amount of weight:{{amountOfWeight}}</li>
-        <li>Number of sets: {{numberOfSets}}</li>
-        <li>Number of reps:{{numberOfReps}}</li>
-        <li>Aditional equipment: {{additionalEquipment}}</li>
-        <li>Time in between sets: {{timeInBetweenSets}}</li>
-        <li>CREATED: {{created}}</li>
+        <li>Intensity:  {{routineDetails.intensity}}</li>
+        <li>Amount of weight:{{routineDetails.amountOfWeight}}</li>
+        <li>Number of sets: {{routineDetails.numberOfSets}}</li>
+        <li>Number of reps:{{routineDetails.numberOfReps}}</li>
+        <li>Aditional equipment: {{routineDetails.additionalEquipment}}</li>
+        <li>Time in between sets: {{routineDetails.timeInBetweenSets}}</li>
+        <li>CREATED: {{routineDetails.created}}</li>
     </ul>
 
 <form action="/routine/{{routineDetails.id}}/delete" method="POST">
    <button type="submit">DELETE</button>
 </form>
 
-</div> --}}
+</div>
 
