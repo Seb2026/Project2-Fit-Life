@@ -1,7 +1,13 @@
-<form action="/celebrities" method="POST">
-  <input type="text" name="name" placeholder="exercise name"> <br>
+
+<form action="/exercise/create" method="POST">
+
+  <input type="text" name="exerciseName" placeholder="exercise name"> <br>
   <input type="text" name="targetedBodyPart" placeholder="targeted body part"> <br>
-  <input type="text" name="howToDoIt" placeholder="how to do it"> <br>
-  <input type="image" name= "image" placeholder="workout pic"><br>g
+  <label>
+  <textarea name="howToDoIt" placeholder="how to do it" cols='20' rows='10'></textarea> <br>
+
+  </label>
+  <input type="text" name= "exerciseImg" placeholder="workout pic"><br>
   <button type="submit">Save new Exercise</button>
+
 </form>

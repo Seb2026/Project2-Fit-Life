@@ -1,5 +1,9 @@
+<h2>You have {{allExercises.length}} exercises in your database:</h2>
+
+
 <ul>
-  {{#each allExercises}
-    <li>{{ name }}</li>
+  {{#each allExercises}}
+    <li>{{ exerciseName }}</li>
+    <a href="/exercise/{{id}}">Details</a>
   {{/each}}
 </ul>
