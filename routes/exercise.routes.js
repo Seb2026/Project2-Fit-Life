@@ -36,5 +36,45 @@ exerciseRouter.get("/exercise", (req, res, next) => {
     })
     .catch((err) => console.log("Err while getting all exercises: ", err));
 });
+// edit
+exerciseRouter.get('/exercise/:id/edit', (req, res, next)=> {
+  Exercise.findById(req.params.id)
+  .then(foundExercise => {
+    res.render(`exercise/edit-exercise`, foundExercise);
+  })
+  .catch(err => {
+    console.log(`error finding exercise by id due to ${err}`);
+});
+});
+
+
+exerciseRouter.post('/exercise/:id/edit', (req, res, next) => {
+
+
+Exercise.findByIdAndUpdate(req.params.id, { new: true })
+.then((updatedExercise) => {
+  res.redirect(`/exercise`);
+})
+.catch(err => {
+  console.log(`error updating exercise due to ${err}`);
+});
+});
+
+//Delete
+exerciseRouter.post("/exercise/:id/delete", (req, res, next) => {
+  Exercise.findByIdAndRemove(req.params.id)
+    .then(() => {
+      res.redirect("/exercise");
+    })
+    .catch((err) => console.log("Error while deleting an exercise: ", err));
+});
+
+
+exerciseRouter.get('/exercise/:id',(req, res, next)=> {
+  Exercise.findById(req.params.id)
+  .then(exerciseDetails => {
+    res.render('exercise/details-exercise', {exerciseDetails})
+  })
+})
 
 module.exports = exerciseRouter;

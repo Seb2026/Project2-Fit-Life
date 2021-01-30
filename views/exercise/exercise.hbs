@@ -5,5 +5,7 @@
   {{#each allExercises}}
     <li>{{ exerciseName }}</li>
     <a href="/exercise/{{id}}">Details</a>
+      <form action="/exercise/{{_id}}/delete" method="POST">
+        <button>Delete</button>
   {{/each}}
 </ul>

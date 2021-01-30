@@ -1,0 +1,22 @@
+<h2>You have created {{allRoutinesFromDB.length}} routines:</h2>
+
+<div>
+
+<ul>
+    {{#each allExercisesFromDB}}
+    <h3>Name:</h3>
+    <p><a href="/exercise/{{id}}">{{name}}</a> </p>
+
+    <p>TYPE OF Exercise: {{typeOfExercise}}</p>
+
+    <form action="/exercise/{{id}}/delete" method="POST">
+   <button type="submit">DELETE</button>
+   </form>
+
+    <a href="/exercise/{{id}}/edit">Edit </a>
+    {{/each}}
+</ul>
+
+</div>
+
+<a href="/exercise/new">Create new exercise</a>
