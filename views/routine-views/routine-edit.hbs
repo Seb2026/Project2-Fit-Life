@@ -9,13 +9,11 @@
 <br>
 
 <label> Type of Training:
-    <select name="typeOfTraining" multiple>
-
-<option value="Speed&Power">Speed & Power</option>
-<option value="Resistance">Resistance</option>
-<option value="HIIT">HIIT</option>
-<option value="Circuit">Circuit</option>
-
+    <select name="typeOfTraining">
+        <option selected value="{{foundRoutine.typeOfTraining}}">{{foundRoutine.typeOfTraining}}</option>  
+        <option  value="{{filteredValues.[0]}}">{{filteredValues.[0]}}</option>  
+        <option  value="{{filteredValues.[1]}}">{{filteredValues.[1]}}</option>  
+        <option  value="{{filteredValues.[2]}}">{{filteredValues.[2]}}</option>  
     </select>   
 </label>
 
@@ -36,11 +34,13 @@
 <br>
 
 <label> Intensity:
-<select name="intensity" selected>
+<select name="intensity">
 
-<option value="low">low</option>
-<option value="medium">medium</option>
-<option value="high">high</option>
+        <option selected value="{{foundRoutine.intensity}}">{{foundRoutine.intensity}}</option>  
+        <option  value="{{filteredIntensityValues.[0]}}">{{filteredIntensityValues.[0]}}</option>  
+        <option  value="{{filteredIntensityValues.[1]}}">{{filteredIntensityValues.[1]}}</option>  
+      
+
 
 </select>   
 
