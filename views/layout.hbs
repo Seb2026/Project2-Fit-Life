@@ -11,6 +11,16 @@
   </head>
 
   <body>
+    <nav>
+      {{#if userInSession}}
+        <form action="/logout" method="post">
+        <button>Logout</button>
+        </form>
+      {{else}}
+        <a href="/signup">Signup</a>
+        <a href="/login">Login</a>
+      {{/if}}
+    </nav>
     <div class="container">
       {{{body}}}
     </div>
