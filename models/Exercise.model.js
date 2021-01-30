@@ -14,7 +14,7 @@ const exerciseSchema = new Schema(
       type: String,
     },
     exerciseImg: {
-        type: Image,
+        type: String,
     }
   },
   {
