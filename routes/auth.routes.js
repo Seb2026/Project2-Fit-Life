@@ -58,7 +58,9 @@ router.post(`/login`, (req, res, next) => {
             res.render(`auth/login`, { errorMessage: `No user was found. Try again`});
             return;
         } else if (bcryptjs.compareSync(password, foundUser.password)) { // if hashed password is correct to hashed password in db
-            res.redirect(`/`);
+            req.session.currentUser = foundUser;
+            console.log(req.session.currentUser);
+            res.redirect(`/profile`);
         } else {
             res.render(`auth/login`, { errorMessage: `Password is incorrect. Try again.`}); // means password is wrong so rendering back with error message
         }
@@ -67,6 +69,12 @@ router.post(`/login`, (req, res, next) => {
         console.log(`Error logging in due to: ${err}`);
     });
     
+});
+
+router.post(`/logout`, (req, res, next) => {
+    req.session.destroy();
+
+    res.redirect(`/`);
 });
 
 
