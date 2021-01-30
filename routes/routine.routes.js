@@ -3,9 +3,13 @@ const router  = express.Router();
 
 const Routine = require ('../models/Routine.model');
 const Exercise = require ('../models/Exercise.model');
+const User = require ('../models/User.model')
+
+const { VirtualType } = require('mongoose');
 
 //GET FORM 
 router.get("/routine/new", (req, res, next) => {
+    
 Exercise.find()
     .then(findExercises=> {
         res.render("routine-views/routine-form", {findExercises})})
@@ -48,48 +52,57 @@ router.post('/routine/:id/delete', (req, res, next)=>{
 
 
 //GET TO EDIT 
-router.get("/movies/:id/edit", (req, res, next)=>{
+router.get("/routine/:id/edit", (req, res, next)=>{
     
     Routine.findById(req.params.id)
     .populate("exercises")
     .then(foundRoutine => {
-     
 
-      Exercise.find()
-      .then((allExercises) => { 
-        allExercises.forEach(oneExercise => {
-            foundRoutine.exercises.forEach(exercise => {
-              if(oneExercise.id.equals(exercise.id)){
-                oneExercise.isInRoutine=true;
-              }
-          })
-        })
-          res.render('routine-views/routine-edit', { foundRoutine, allExercises});
+        
+        Exercise.find()
+        .then((allExercises) => { 
+            allExercises.forEach(oneExercise => {
+                foundRoutine.exercises.forEach(exercise => {
+                    if(oneExercise._id.equals(exercise._id)){
+                        oneExercise.isInRoutine=true;
+                    }
+                })
+            })
+            
+            
+            let typesOfTrainingValues = ["Resistance", "Speed&Power", "HIIT", "Circuit"];
+            let intensityalues = ["low", "medium", "high"]
+    
+            let filteredValues = typesOfTrainingValues.filter(element=>{
+                return (element!==foundRoutine.typeOfTraining)
+            });
+
+            let filteredIntensityValues = intensityalues.filter(element=>{
+                return (element!==foundRoutine.intensity)
+            })
+            
+          res.render('routine-views/routine-edit', { foundRoutine, allExercises, filteredValues, filteredIntensityValues});
       });
     })
-    .catch(err => console.log(`Something went wrhong while finding movie to edit ${err}`))
+    .catch(err => console.log(`Something went wrhong while finding routine to edit ${err}`))
 });
 
 
+//POST TO EDIT
+router.post('/routine/:id/edit', (req, res, next) =>{
 
-// //POST TO EDIT
-// router.post('/routine/:id/edit', (req, res, next) =>{
+    const {name, typeOfTraining, exercises, intensity, amountOfWeight, numberOfSets, 
+        numberOfReps, additionalEquipment, timeInBetweenSets, created} = req.body;
 
-//     const {name, typeOfTraining, exercises, intensity, amountOfWeight, numberOfSets, 
-//         numberOfReps, additionalEquipment, timeInBetweenSets, created} = req.body;
+    Routine.findByIdAndUpdate(req.params.id, {name, typeOfTraining, exercises, intensity, amountOfWeight, numberOfSets, 
+        numberOfReps, additionalEquipment, timeInBetweenSets, created}, {new: true})
+    .then(editedRoutine => {
+        console.log(editedRoutine.id);
+        res.redirect(`/routine/${editedRoutine.id}`)
 
-//     Exercise.findByIdAndUpdate(req.params.id, {name, typeOfTraining, exercises, intensity, amountOfWeight, numberOfSets, 
-//         numberOfReps, additionalEquipment, timeInBetweenSets, created}, {new: true})
-//     .then(editedRoutine => {
-//         console.log(editedRoutine);
-//         res.redirect(`/routine/${editedRoutine.id}`)
-
-//     })
-//     .catch(err => `Error occured while saving updated movie ${err}`)
-// });
-
-
-
+    })
+    .catch(err => `Error occured while saving updated routine ${err}`)
+});
 
 
 
