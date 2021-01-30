@@ -12,7 +12,96 @@ Exercise.find()
     .catch(err=>console.log(`Error while trying to find exercise from DB: ${err}`))
 });
 
+// //POST TO SAVE ROUTINE
+// router.get("/routine/create", (req, res, next)=>{
+//     const {name, typeOfTraining, exercises, intensity, amountOfWeight, numberOfSets, 
+//         numberOfReps, additionalEquipment, timeInBetweenSets, created} = req.body;
 
+//     Routine.create({name, typeOfTraining, exercises, intensity, amountOfWeight, numberOfSets, 
+//         numberOfReps, additionalEquipment, timeInBetweenSets, created})
+//         .then(createdRoutine=>{
+//             console.log(createdRoutine);
+//             res.redirect('/routine')
+//         })
+//         .catch(err => console.log(`Error while creating new routine: ${err}`))
+// })
+
+// //GET TO DISPLAY ALL ROUTINES:
+// router.get('/routine', (req, res, next) => {
+//     Routine.find()
+//     .then(allRoutinesFromDB => {
+//         res.render('routine-views/routine-list', { allRoutinesFromDB })
+//     })
+//     .catch(err=> console.log(`Error while displaying routines: ${err}`))
+
+//   });
+
+// //POST TO DELETE
+
+// router.post('/routine/:id/delete', (req, res, next)=>{
+//     Routine.findByIdAndRemove(req.params.id)
+//     .then(()=> {
+//         res.redirect('/routine')
+//     })
+//     .catch(err=>console.log(`Error while removing routine from DB: ${err}`))
+// });
+
+
+// //GET TO EDIT 
+// router.get("/movies/:id/edit", (req, res, next)=>{
+    
+//     Routine.findById(req.params.id)
+//     .populate("exercises")
+//     .then(foundRoutine => {
+     
+
+//       Exercise.find()
+//       .then((allExercises) => { 
+//         allExercises.forEach(oneExercise => {
+//             foundRoutine.exercises.forEach(exercise => {
+//               if(oneExercise.id.equals(exercise.id)){
+//                 oneExercise.isInRoutine=true;
+//               }
+//           })
+//         })
+//           res.render('routine-views/routine-edit', { foundRoutine, allExercises});
+//       });
+//     })
+//     .catch(err => console.log(`Something went wrhong while finding movie to edit ${err}`))
+// });
+
+
+
+// //POST TO EDIT
+// router.post('/routine/:id/edit', (req, res, next) =>{
+
+//     const {name, typeOfTraining, exercises, intensity, amountOfWeight, numberOfSets, 
+//         numberOfReps, additionalEquipment, timeInBetweenSets, created} = req.body;
+
+//     Exercise.findByIdAndUpdate(req.params.id, {name, typeOfTraining, exercises, intensity, amountOfWeight, numberOfSets, 
+//         numberOfReps, additionalEquipment, timeInBetweenSets, created}, {new: true})
+//     .then(editedRoutine => {
+//         console.log(editedRoutine);
+//         res.redirect(`/routine/${editedRoutine.id}`)
+
+//     })
+//     .catch(err => `Error occured while saving updated movie ${err}`)
+// });
+
+
+
+
+
+
+  //GET TO DISPLAY DETAILS OF EACH ROUTINE
+router.get("/routine/:id", (req, res, next)=>{
+    Routine.findById(req.params.id)
+    .populate('exercises')
+    .then(routineDetails => {
+        res.render("routine-views/routine-details", {routineDetails})
+    })
+    .catch(err=>console.log(`Some error while gettin routine details ${err}`))
+})
 
 
 

@@ -1,0 +1,84 @@
+{{!-- <h2>Edit {{name}} routine:</h2>
+
+<form action="/routine/{{id}}/edit" method="POST">
+
+<label> Name:
+    <input type="text" name="name" value="{{name}}">
+</label>
+
+<br>
+
+<label> Type of Training:
+    <select name="typeOfTraining" multiple>
+
+<option value="Speed&Power">Speed & Power</option>
+<option value="Resistance">Resistance</option>
+<option value="HIIT">HIIT</option>
+<option value="Circuit">Circuit</option>
+
+    </select>   
+</label>
+
+<br>
+
+<label> Exercises:
+    <select name="exercises" multiple>
+        {{#each allExercises}}
+        {{#if isInRoutine}}
+            <option selected value="{{id}}">{{exerciseName}}</option>
+            {{else}}
+             <option value="{{id}}">{{exerciseName}}</option>
+        {{/if}}
+        {{/each}}
+    </select>
+</label>
+
+<br>
+
+<label> Intensity:
+<select name="intensity" selected>
+
+<option value="low">low</option>
+<option value="medium">medium</option>
+<option value="high">high</option>
+
+</select>   
+
+
+</label>
+
+<br>
+
+<label> Amount Of Weights:
+    <input type="number" name="amountOfWeight" placeholder="lbs" min='1' value="{{amountOfWeight}}"> lbs
+</label>
+
+<br>
+
+<label> Number Of Sets:
+    <input type="number" name="numberOfSets" min='1' value="{{numberOfSets}}">
+</label>
+
+<br>
+
+<label> Number Of Reps:
+    <input type="number" name="numberOfReps" min='1' value="{{numberOfReps}}">
+</label>
+
+<br>
+
+<label> Additional Equipment:
+    <input type="text" name="additionalEquipment" value="{{additionalEquipment}}">
+</label>
+
+<br>
+
+<label> Time In Between Sets:
+    <input type="number" name="timeInBetweenSets" min='0' placeholder="sec" value="{{timeInBetweenSets}}"> sec
+</label>
+
+<br>
+
+<button type='submit'>Save</button>
+
+</form> --}}
