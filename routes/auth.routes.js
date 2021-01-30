@@ -16,17 +16,17 @@ router.get(`/signup`, (req, res, next) => {
 
 //creating user in our database using info from form and hashing password
 router.post(`/signup`, (req,res,next) => {
-    const { username, email, userPass } = req.body;
+    const { username, email, userPass, weight } = req.body;
 
     bcryptjs
     .genSalt(saltRounds) // <--- 10 rounds , variable created above
     .then((salt) => bcryptjs.hash(userPass, salt)) // hashing password after creating salt
     .then((hashedPass) => {
         console.log(hashedPass)
-        return User.create({ username, email, password: hashedPass })
+        return User.create({ username, email, password: hashedPass, weight })
     })
     .then((fitUser) => {
-        res.redirect(`/`); // <--- redirecting to homepage for now will modify later to profile page 
+        res.redirect(`/profile`); // <--- redirecting to homepage for now will modify later to profile page 
     })
     .catch((err) => {    // <--- error messages that are sent to signup page if an error occurs 
         if (err.code === 11000) {
@@ -59,8 +59,8 @@ router.post(`/login`, (req, res, next) => {
             return;
         } else if (bcryptjs.compareSync(password, foundUser.password)) { // if hashed password is correct to hashed password in db
             req.session.currentUser = foundUser;
-            console.log(req.session.currentUser);
-            res.redirect(`/profile`);
+            // console.log(req.session.currentUser);
+            res.redirect(`/update-weight`);
         } else {
             res.render(`auth/login`, { errorMessage: `Password is incorrect. Try again.`}); // means password is wrong so rendering back with error message
         }
@@ -71,6 +71,8 @@ router.post(`/login`, (req, res, next) => {
     
 });
 
+
+//logout
 router.post(`/logout`, (req, res, next) => {
     req.session.destroy();
 
