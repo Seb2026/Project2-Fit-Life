@@ -1,22 +1,23 @@
-<h2>You have created {{allRoutinesFromDB.length}} routines:</h2>
+<h2>Edit: {{foundExercise.exerciseName}} </h2>
 
-<div>
+<form action="/exercise/{{foundExercise.id}}/edit" method="POST">
 
-<ul>
-    {{#each allExercisesFromDB}}
-    <h3>Name:</h3>
-    <p><a href="/exercise/{{id}}">{{name}}</a> </p>
+<label>name
+  <input type="text" name="exerciseName" placeholder="exercise name" value='{{foundExercise.exerciseName}}'> 
+  </label> 
+  <br>
+  <label>Targeted Body Part
+<input type="text" name="targetedBodyPart" placeholder="targeted body part"value='{{foundExercise.targetedBodyPart}}'> 
+  </label>
+  <br>
+  <label> How to do it
+  <input type= 'textarea' name="howToDoIt" placeholder="how to do it" cols='20' rows='10'value='{{foundExercise.howToDoIt}}'>
+  </label>
+  <br>
+  <label> Workout pic
+<input type="text" name= "exerciseImg" placeholder="workout pic"value='{{foundExercise.exerciseImg}}'>
+  </label>
+  <br>
+  <button type="submit">Save Updated Exercise</button>
 
-    <p>TYPE OF Exercise: {{typeOfExercise}}</p>
-
-    <form action="/exercise/{{id}}/delete" method="POST">
-   <button type="submit">DELETE</button>
-   </form>
-
-    <a href="/exercise/{{id}}/edit">Edit </a>
-    {{/each}}
-</ul>
-
-</div>
-
-<a href="/exercise/new">Create new exercise</a>
+</form>

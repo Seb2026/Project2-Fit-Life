@@ -4,7 +4,6 @@ const exerciseRouter = express.Router();
 
 const Exercise = require("../models/Exercise.model");
 
-
 exerciseRouter.get("/exercise/new", (req, res, next) => {
   // views/celebrities/new-celebrity.hbs => physical path to the file
   // in res.render() we never have '/'
@@ -17,47 +16,41 @@ exerciseRouter.get("/exercise/new", (req, res, next) => {
 }
 
 exerciseRouter.post("/exercise/create", (req, res, next) => {
- 
-
   Exercise.create(req.body)
     .then((newExercise) => {
-     console.log(newExercise)
+      console.log(newExercise);
       res.redirect("/exercise");
     })
     .catch((err) => console.log("Err while creating new exercise: ", err));
 });
 
-
 exerciseRouter.get("/exercise", (req, res, next) => {
   Exercise.find()
     .then((allExercises) => {
-      
       res.render("exercise/exercise", { allExercises });
     })
     .catch((err) => console.log("Err while getting all exercises: ", err));
 });
 // edit
-exerciseRouter.get('/exercise/:id/edit', (req, res, next)=> {
+exerciseRouter.get("/exercise/:id/edit", (req, res, next) => {
   Exercise.findById(req.params.id)
-  .then(foundExercise => {
-    res.render(`exercise/edit-exercise`, foundExercise);
-  })
-  .catch(err => {
-    console.log(`error finding exercise by id due to ${err}`);
+    .then((foundExercise) => {
+      console.log(foundExercise);
+      res.render(`exercise/edit-exercise`, {foundExercise});
+    })
+    .catch((err) => {
+      console.log(`error finding exercise by id due to ${err}`);
+    });
 });
-});
 
-
-exerciseRouter.post('/exercise/:id/edit', (req, res, next) => {
-
-
-Exercise.findByIdAndUpdate(req.params.id, { new: true })
-.then((updatedExercise) => {
-  res.redirect(`/exercise`);
-})
-.catch(err => {
-  console.log(`error updating exercise due to ${err}`);
-});
+exerciseRouter.post("/exercise/:id/edit", (req, res, next) => {
+  Exercise.findByIdAndUpdate(req.params.id, req.body, { new: true })
+    .then((updatedExercise) => {
+      res.redirect(`/exercise`);
+    })
+    .catch((err) => {
+      console.log(`error updating exercise due to ${err}`);
+    });
 });
 
 //Delete
@@ -69,12 +62,10 @@ exerciseRouter.post("/exercise/:id/delete", (req, res, next) => {
     .catch((err) => console.log("Error while deleting an exercise: ", err));
 });
 
-
-exerciseRouter.get('/exercise/:id',(req, res, next)=> {
-  Exercise.findById(req.params.id)
-  .then(exerciseDetails => {
-    res.render('exercise/details-exercise', {exerciseDetails})
-  })
-})
+exerciseRouter.get("/exercise/:id", (req, res, next) => {
+  Exercise.findById(req.params.id).then((exerciseDetails) => {
+    res.render("exercise/details-exercise", { exerciseDetails });
+  });
+});
 
 module.exports = exerciseRouter;
