@@ -16,18 +16,23 @@
         <form action="/logout" method="post">
         <button>Logout</button>
         </form>
+        <br> |
+        <a href="/exercise/new">Create new exercise</a>|
+        <a href="/routine/new">Create new routine</a>|
+        <a href="/exercise/">Your exercises</a>|
+        <a href="/routine">Your workout routines</a>| 
       {{else}}
         <a href="/signup">Signup</a>
         <a href="/login">Login</a>
       {{/if}}
     </nav>
     <div class="container">
-      <nav>
+      {{!-- <nav>
         <a href="/exercise/new">Create new exercise</a>
         <a href="/routine/new">Create new routine</a>
         <a href="/exercise/">Your exercises</a>
         <a href="/routine">Your workout routines</a>
-      </nav>
+      </nav> --}}
       {{{body}}}
     </div>
 
