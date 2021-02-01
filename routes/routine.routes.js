@@ -10,7 +10,7 @@ const { VirtualType } = require('mongoose');
 //GET FORM 
 router.get("/routine/new", (req, res, next) => {
     
-Exercise.find()
+Exercise.find({userid: req.session.currentUser._id})
     .then(findExercises=> {
         res.render("routine-views/routine-form", {findExercises})})
     .catch(err=>console.log(`Error while trying to find exercise from DB: ${err}`))
@@ -22,7 +22,8 @@ router.post("/routine/create", (req, res, next)=>{
     const {name, typeOfTraining, exercises, intensity, amountOfWeight, numberOfSets, 
         numberOfReps, additionalEquipment, timeInBetweenSets, created} = req.body;
 
-    Routine.create(req.body)
+    Routine.create({name, typeOfTraining, exercises, intensity, amountOfWeight, numberOfSets, 
+        numberOfReps, additionalEquipment, timeInBetweenSets, created, userid: req.session.currentUser._id})
         .then(createdRoutine=>{
             console.log(createdRoutine);
             res.redirect('/routine')
@@ -32,7 +33,7 @@ router.post("/routine/create", (req, res, next)=>{
 
 //GET TO DISPLAY ALL ROUTINES:
 router.get('/routine', (req, res, next) => {
-    Routine.find()
+    Routine.find({ userid: req.session.currentUser._id})
     .then(allRoutinesFromDB => {
         res.render('routine-views/routine-list', { allRoutinesFromDB })
     })

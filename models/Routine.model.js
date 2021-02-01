@@ -21,7 +21,10 @@ const routineSchema = new Schema (
     created: {
         type: Date,
         default: Date.now
-      }
+      },
+    userid: [
+        {type: Schema.Types.ObjectId, ref: `User`}
+    ]
 },
 {
     timestamps: true

@@ -3,6 +3,7 @@ const express = require("express");
 const exerciseRouter = express.Router();
 
 const Exercise = require("../models/Exercise.model");
+const User = require("../models/User.model");
 
 exerciseRouter.get("/exercise/new", (req, res, next) => {
   // views/celebrities/new-celebrity.hbs => physical path to the file
@@ -16,7 +17,9 @@ exerciseRouter.get("/exercise/new", (req, res, next) => {
 }
 
 exerciseRouter.post("/exercise/create", (req, res, next) => {
-  Exercise.create(req.body)
+  const { exerciseName, targetedBodyPart, howToDoIt, exerciseImg } = req.body;
+
+  Exercise.create({exerciseName, targetedBodyPart, howToDoIt, exerciseImg, userid: req.session.currentUser._id})
     .then((newExercise) => {
       console.log(newExercise);
       res.redirect("/exercise");
@@ -25,14 +28,17 @@ exerciseRouter.post("/exercise/create", (req, res, next) => {
 });
 
 exerciseRouter.get("/exercise", (req, res, next) => {
-  Exercise.find()
+  
+  Exercise.find({userid: req.session.currentUser._id})
     .then((allExercises) => {
       res.render("exercise/exercise", { allExercises });
     })
     .catch((err) => console.log("Err while getting all exercises: ", err));
+
 });
 // edit
 exerciseRouter.get("/exercise/:id/edit", (req, res, next) => {
+  
   Exercise.findById(req.params.id)
     .then((foundExercise) => {
       console.log(foundExercise);

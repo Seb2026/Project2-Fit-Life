@@ -15,7 +15,10 @@ const exerciseSchema = new Schema(
     },
     exerciseImg: {
         type: String,
-    }
+    },
+    userid: [
+      { type: Schema.Types.ObjectId, ref: 'User' }
+    ]
   },
   {
     timestamps: true
