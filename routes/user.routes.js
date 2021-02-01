@@ -5,12 +5,14 @@ const User = require(`../models/User.model`);
 
 const routeGuard = require(`../configs/route-guard.config`);
 
+
+
 router.get(`/profile`, routeGuard, (req, res, next) => {
     res.render(`user-views/profile`);
 });
 
 router.post(`/update-weight`, (req, res, next) => {
-    console.log('check')
+    // console.log('check')
     let { isWeightSame, weight } = req.body;
     // console.log('-----> weight:  ', weight);
     // console.log('-----> isWeightSame:  ', isWeightSame);
