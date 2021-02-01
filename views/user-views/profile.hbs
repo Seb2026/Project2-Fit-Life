@@ -2,7 +2,10 @@
 <br>
 <br>
 {{#if userInSession}}
-    <h3>Welcome to your fit joruney {{userInSession.username}}</h3>
+    <p>Welcome to your fit joruney {{userInSession.username}}</p>
+
+    <p>Current weight: {{userInSession.weight}}</p>
+    <p>Goal: (under construction)</p>
 {{else}}
     <h3>No user found!</h3>
 {{/if}}
