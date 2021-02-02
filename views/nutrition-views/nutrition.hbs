@@ -1,0 +1,53 @@
+
+<h2>NUTRITION</h2>
+
+<p>random recepie:{{recipe}}</p>
+
+<section>
+<h4>FIND BY NUTRIENTS:</h4>
+<div>
+<form action="/carbs-search" method="get">
+<input type="number" name='minCarbs' placeholder="min carbs" min="1">
+<input type="number" name='maxCarbs' placeholder="max carbs" min="1">
+<input type="number" name='numOfRecepies' placeholder="How many recepies" min="1">
+<button>Search by carbs</button>
+<input type="reset" value="reset">
+</form>
+</div>
+
+<div>
+<form action="/protein-search" method="get">
+<input type="number" name='minProtein' placeholder="min protein" min="1">
+<input type="number" name='maxProtein' placeholder="max protein" min="1">
+<input type="number" name='numOfRecepies' placeholder="How many recepies" min="1">
+<button>Search by protein</button>
+<input type="reset" value="reset">
+</form>
+</div>
+
+<div>
+<form action="/calories-search" method="get">
+<input type="number" name='minCalories' placeholder="min calories" min="1">
+<input type="number" name='maxCalories' placeholder="max calories" min="1">
+<input type="number" name='numOfRecepies' placeholder="How many recepies" min="1">
+<button>Search by calories</button>
+<input type="reset" value="reset">
+</form>
+</div>
+</section>
+
+<section>
+
+<h4>FIND BY INGREDIENTS:</h4>
+<div>
+<form action="/ingredients-search" method="get">
+<input type="text" name='ingredients' placeholder="eg. apples,flour" min="1">
+<input type="number" name='numOfRecepies' placeholder="How many recepies" min="1">
+<button>Search by ingredients</button>
+<input type="reset" value="reset">
+<span style="font-size:0.8em">Use ,(comma) for search with more ingredients</span>
+</form>
+</div>
+</section>
+
+

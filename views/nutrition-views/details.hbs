@@ -1,0 +1,31 @@
+<h2>{{recepie.title}}</h2>
+
+<img src="{{recepie.image}}" alt="{{recepie.title}}">
+
+
+<h3>SUMMARY:</h3>
+ <p>{{{recepie.summary}}}</p>
+
+
+{{# if recepie.instructions}}
+<h3>INSTRUCTIONS: </h3>
+<p>{{{recepie.instructions}}}</p>
+{{/if}}
+
+
+<p>Weight Watcher Smart Points: {{recepie.weightWatcherSmartPoints}}</p>
+
+
+{{#if recepie.cuisines}}
+<p>CUISINE: {{recepie.cuisines}}  </p>
+{{/if}}
+
+<h3>INGREDIENTS:</h3>
+<ul> 
+{{#each recepie.extendedIngredients}}
+<li>{{name}}</li>
+<li>{{original}}</li>
+{{/each}}
+</ul>
+
+<button><a href="/nutrition">Back to search</a></button>

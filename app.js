@@ -42,6 +42,8 @@ app.use(`/`, require(`./routes/auth.routes`));
 app.use(`/`, require(`./routes/exercise.routes`));
 app.use(`/`, require(`./routes/routine.routes`));
 app.use("/", require("./routes/user.routes"));
+app.use('/', require('./routes/api.routes'))
+
 
 
 module.exports = app;
