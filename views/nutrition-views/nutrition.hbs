@@ -1,8 +1,17 @@
 
 <h2>NUTRITION</h2>
+<hr>
+<section>
+<h3>Recepie of the day:</h3>
+{{#each recipe.recipes}}
+      
+     <h4><a href="/recepies/{{id}}">{{title}}</a></h4>
+     <img src="{{image}}" alt="{{title}}">
+    
+{{/each}}
 
-<p>random recepie:{{recipe}}</p>
-
+</section>
+<hr>
 <section>
 <h4>FIND BY NUTRIENTS:</h4>
 <div>
