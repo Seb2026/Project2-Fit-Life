@@ -19,7 +19,7 @@
 
 {{#if proteins.results}}
 
-<h2>YOUR SEARCH RESULTS BY CARBS:</h2>
+<h2>YOUR SEARCH RESULTS BY PROTEIN:</h2>
 <h3>There are {{proteins.totalResults}} results.</h3>
 <p>We are showing you {{proteins.results.length}}:</p>
 
@@ -35,7 +35,7 @@
 
 {{#if calory.results}}
 
-<h2>YOUR SEARCH RESULTS BY CARBS:</h2>
+<h2>YOUR SEARCH RESULTS BY CALORIES:</h2>
 <h3>There are {{calory.totalResults}} results.</h3>
 <p>We are showing you {{calory.results.length}}:</p>
 
@@ -47,3 +47,36 @@
 {{/each}}
 
 {{/if}}
+
+
+{{#if food.results}}
+
+<h2>YOUR SEARCH RESULTS BY FOOD:</h2>
+<h3>There are {{food.totalResults}} results.</h3>
+<p>We are showing you {{food.results.length}}:</p>
+
+{{#each food.results}}
+<div>
+  <h4> <a href="/recepies/{{id}}"> {{title}}</a> </h4>
+  <img src="{{image}}" alt="{{title}}">
+</div>
+{{/each}}
+
+{{/if}}
+
+{{#if caloriesAndFood.results}}
+
+<h2>YOUR SEARCH RESULTS BY FOOD:</h2>
+<h3>There are {{caloriesAndFood.totalResults}} results.</h3>
+<p>We are showing you {{caloriesAndFood.results.length}}:</p>
+
+{{#each caloriesAndFood.results}}
+<div>
+  <h4> <a href="/recepies/{{id}}"> {{title}}</a> </h4>
+  <img src="{{image}}" alt="{{title}}">
+</div>
+{{/each}}
+
+{{/if}}
+
+

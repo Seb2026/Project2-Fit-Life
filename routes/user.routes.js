@@ -13,7 +13,6 @@ router.get(`/profile`, routeGuard, (req, res, next) => {
     .get (`https://type.fit/api/quotes`)
     .then(allTheQuotes=>{
       const quotes = allTheQuotes.data;
-      console.log(`all Quotes----> ${quotes}`)
       let randomQuote =  quotes[Math.floor(Math.random()*quotes.length)];
       res.render("user-views/profile", {randomQuote})
     })
