@@ -1,3 +1,4 @@
+const { default: axios } = require('axios');
 const express = require("express");
 const router = express.Router();
 const mongoose = require("mongoose");
@@ -6,9 +7,19 @@ const User = require(`../models/User.model`);
 const routeGuard = require(`../configs/route-guard.config`);
 
 
-
+//profile page with random motivational quote
 router.get(`/profile`, routeGuard, (req, res, next) => {
-    res.render(`user-views/profile`);
+    axios
+    .get (`https://type.fit/api/quotes`)
+    .then(allTheQuotes=>{
+      const quotes = allTheQuotes.data;
+      console.log(`all Quotes----> ${quotes}`)
+      let randomQuote =  quotes[Math.floor(Math.random()*quotes.length)];
+      res.render("user-views/profile", {randomQuote})
+    })
+    .catch(error=> {
+      console.log(`error while searching by ranodm recepie ${error}`)
+    });
 });
 
 router.post(`/update-weight`, (req, res, next) => {
