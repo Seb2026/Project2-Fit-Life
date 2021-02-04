@@ -1,26 +1,84 @@
-<h2>Sign up page</h2>
+<section id="contact" class="contact">
+    <div class="container">
+        <div class="section-title" data-aos="fade-up">
+          <h2>Sign up!</h2>
+        </div>
+        <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
+            <form action="/signup" method="post" role="form" class="php-email-form">
+            <div class="row">
+                <label>Username:
+                    <input type="text" name="username">
+                </label>
+            </div>
 
-<form action="/signup" method="post">
-<label>Username:
-    <input type="text" name="username">
-</label>
+            <div class="">
+                <label>Email: 
+                    <input type="text" name="email">
+                </label>
+            </div>
+            <label>Password:
+                <input type="password" name="userPass">
+            </label>
 
-<label>Email: 
-    <input type="text" name="email">
-</label>
+            <label>Weight(lb):
+                <input type="number" name="weight">
+            </label>
 
-<label>Password:
-    <input type="password" name="userPass">
-</label>
+            <button>Sign up!</button>
 
-<label>Weight(lb):
-    <input type="number" name="weight">
-</label>
+            {{#if errorMessage}}
+            <p>{{ errorMessage }}</p>
+            {{/if}}
 
-<button>Sign up!</button>
+            </form>
+        </div>
+    </div>
+</section>
 
-{{#if errorMessage}}
-<p>{{ errorMessage }}</p>
-{{/if}}
+{{!-- 
+  <section id="contact" class="contact">
+      <div class="container">
 
-</form>
+        <div class="section-title" data-aos="fade-up">
+          <h2>Sign up!</h2>
+        </div>
+
+        <div class="row">
+
+          <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
+            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+              <div class="row">
+                <div class="form-group col-md-6">
+                  <label for="name">Your Name</label>
+                  <input type="text" name="name" class="form-control" id="name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                  <div class="validate"></div>
+                </div>
+                <div class="form-group col-md-6 mt-3 mt-md-0">
+                  <label for="name">Your Email</label>
+                  <input type="email" class="form-control" name="email" id="email" data-rule="email" data-msg="Please enter a valid email" />
+                  <div class="validate"></div>
+                </div>
+              </div>
+              <div class="form-group mt-3">
+                <label for="name">Subject</label>
+                <input type="text" class="form-control" name="subject" id="subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+                <div class="validate"></div>
+              </div>
+              <div class="form-group mt-3">
+                <label for="name">Message</label>
+                <textarea class="form-control" name="message" rows="10" data-rule="required" data-msg="Please write something for us"></textarea>
+                <div class="validate"></div>
+              </div>
+              <div class="mb-3">
+                <div class="loading">Loading</div>
+                <div class="error-message"></div>
+                <div class="sent-message">Your message has been sent. Thank you!</div>
+              </div>
+              <div class="text-center"><button type="submit">Send Message</button></div>
+            </form>
+          </div>
+
+        </div>
+
+      </div>
+    </section> --}}
