@@ -633,6 +633,7 @@ section {
 --------------------------------------------------------------*/
 .portfolio .portfolio-item {
   margin-bottom: 30px;
+  width: auto;
 }
 
 .portfolio #portfolio-flters {
@@ -687,6 +688,8 @@ section {
   transition: 0.3s;
   position: relative;
   z-index: 1;
+  
+
 }
 
 .portfolio .portfolio-wrap .portfolio-links {
@@ -835,9 +838,19 @@ section {
   margin-bottom: 20px;
 }
 
+.new-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .portfolio-details .portfolio-description p {
   padding: 0 0 0 0;
 }
+
+.portfolio-container {
+  margin-left: 200px;
+} 
 
 @media (max-width: 768px) {
   .portfolio-details .portfolio-description h2 {
@@ -1170,32 +1183,61 @@ section {
   animation: animate-loading 1s linear infinite;
 }
 
-.contact .php-email-form input, .contact .php-email-form textarea {
+.contact .php-email-form input {
   border-radius: 0;
   box-shadow: none;
   font-size: 14px;
+  margin:7px;
+  height: 44px;
+  width: 130px;
+  padding: 5px;
 }
 
-.contact .php-email-form input {
+
+
+.contact .php-email-form #howManuRecepies {
   height: 44px;
+  width: 170px;
 }
 
 .contact .php-email-form textarea {
   padding: 10px 12px;
 }
 
-.contact .php-email-form button[type="submit"] {
+.contact .php-email-form button, .contact .php-email-form input[type="reset"] {
   background: #eb5d1e;
   border: 0;
-  padding: 10px 24px;
+  padding: 5px 5px;
   color: #fff;
   transition: 0.4s;
   border-radius: 4px;
+  height: 50px;
+  width: fit-content;
+  font-size: 15px;
 }
 
-.contact .php-email-form button[type="submit"]:hover {
+
+
+.contact .php-email-form button:hover {
   background: #ef7f4d;
 }
+
+.contact .searchBar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.contact #findByIngredients {
+  justify-content: space-between;
+}
+
+.contact #multiSearch {
+flex-wrap: wrap;
+justify-content:center
+}
+
 
 @-webkit-keyframes animate-loading {
   0% {
