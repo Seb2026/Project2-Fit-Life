@@ -112,7 +112,7 @@ router.get('/foodname-search', (req, res, next) => {
 router.get('/foodcalorie-search', (req, res, next) => {
 
   axios
-  .get (`https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.KEY_API}&query=${req.query.foodName}&minCalories=${req.query.minCalories}&maxCalories=${req.query.maxCalories}&number=${req.query.numOfRecepies}`)
+  .get (`https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.KEY_API}&query=${req.query.foodName}&maxCalories=${req.query.calories}&number=${req.query.numOfRecepies}`)
   .then(foodSerach=>{
     const caloriesAndFood = foodSerach.data;
     res.render("nutrition-views/findByNutrients", {caloriesAndFood})
