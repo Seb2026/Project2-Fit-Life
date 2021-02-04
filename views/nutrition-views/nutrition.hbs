@@ -7,11 +7,15 @@
       
      <h4><a href="/recepies/{{id}}">{{title}}</a></h4>
      <img src="{{image}}" alt="{{title}}">
+     <p>Diets: {{diets}}</p>
+     <p>Weight WatcherSmartPoints: {{weightWatcherSmartPoints}}</p>
+     
     
 {{/each}}
 
 </section>
 <hr>
+<br>
 <section>
 <h4>FIND BY NUTRIENTS:</h4>
 <div>
@@ -43,8 +47,58 @@
 <input type="reset" value="reset">
 </form>
 </div>
+
+<div>
+<form action="/multi-search" method="get">
+<input type="number" name='maxCalories' placeholder="max calories" min="1">
+<input type="number" name='maxProtein' placeholder="max protein" min="1">
+<input type="number" name='maxCarbs' placeholder="max carbs" min="1">
+<input type="number" name='numOfRecepies' placeholder="How many recepies" min="1">
+<button>Search by all nutrients</button>
+<input type="reset" value="reset">
+</form>
+</div>
+
+
+
+
 </section>
 
+<br>
+
+
+<section>
+<h4>FIND RECEPIES BY FOOD:</h4>
+<div>
+<form action="/foodname-search" method="get">
+<input type="text" name='foodName' placeholder="eg. burger">
+<input type="number" name='numOfRecepies' placeholder="How many recepies" min="1">
+<button>Search by food</button>
+<input type="reset" value="reset">
+</form>
+</div>
+
+<h4>FIND RECEPIES BY FOOD & CALORIE RANGE:</h4>
+<div>
+<form action="/foodcalorie-search" method="get">
+<input type="text" name='foodName' placeholder="eg. burger">
+<input type="number" name='calories' placeholder="max calories" min="1">
+<input type="number" name='numOfRecepies' placeholder="How many recepies" min="1">
+<button>Search by food & calores</button>
+<input type="reset" value="reset">
+</form>
+</div>
+
+
+
+
+
+</section>
+
+
+
+
+<br>
 <section>
 
 <h4>FIND BY INGREDIENTS:</h4>

@@ -6,7 +6,7 @@
 
 <h2>YOUR SEARCH RESULTS BY CARBS:</h2>
 <h3>There are {{carbs.totalResults}} results.</h3>
-<p>We are showing you {{carbs.results.length}}:</p>
+<p>We are showing you {{carbs.results.length}}, from lowest to higest carb amount:</p>
 
 {{#each carbs.results}}
 <div>
@@ -19,9 +19,9 @@
 
 {{#if proteins.results}}
 
-<h2>YOUR SEARCH RESULTS BY CARBS:</h2>
+<h2>YOUR SEARCH RESULTS BY PROTEIN:</h2>
 <h3>There are {{proteins.totalResults}} results.</h3>
-<p>We are showing you {{proteins.results.length}}:</p>
+<p>We are showing you {{proteins.results.length}}, from lowest to higest protein amount:</p>
 
 {{#each proteins.results}}
 <div>
@@ -35,9 +35,9 @@
 
 {{#if calory.results}}
 
-<h2>YOUR SEARCH RESULTS BY CARBS:</h2>
+<h2>YOUR SEARCH RESULTS BY CALORIES:</h2>
 <h3>There are {{calory.totalResults}} results.</h3>
-<p>We are showing you {{calory.results.length}}:</p>
+<p>We are showing you {{calory.results.length}}, from lowest to highest calorie amount:</p>
 
 {{#each calory.results}}
 <div>
@@ -47,3 +47,36 @@
 {{/each}}
 
 {{/if}}
+
+
+{{#if food.results}}
+
+<h2>YOUR SEARCH RESULTS BY FOOD:</h2>
+<h3>There are {{food.totalResults}} results.</h3>
+<p>We are showing you {{food.results.length}}:</p>
+
+{{#each food.results}}
+<div>
+  <h4> <a href="/recepies/{{id}}"> {{title}}</a> </h4>
+  <img src="{{image}}" alt="{{title}}">
+</div>
+{{/each}}
+
+{{/if}}
+
+{{#if caloriesAndFood.results}}
+
+<h2>YOUR SEARCH RESULTS BY FOOD:</h2>
+<h3>There are {{caloriesAndFood.totalResults}} results.</h3>
+<p>We are showing you {{caloriesAndFood.results.length}}, from lowest to highest calorie amount:</p>
+
+{{#each caloriesAndFood.results}}
+<div>
+  <h4> <a href="/recepies/{{id}}"> {{title}}</a> </h4>
+  <img src="{{image}}" alt="{{title}}">
+</div>
+{{/each}}
+
+{{/if}}
+
+

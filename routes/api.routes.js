@@ -18,7 +18,7 @@ router.get('/nutrition', (req, res, next) => {
   });
 
 
-//find by nutrients
+//find by carbs
 router.get('/carbs-search', (req, res, next) => {
     axios
     .get (`https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.KEY_API}&minCarbs=${req.query.minCarbs}&maxCarbs=${req.query.maxCarbs}&number=${req.query.numOfRecepies}`)
@@ -32,10 +32,10 @@ router.get('/carbs-search', (req, res, next) => {
     });
   });
 
-
+//by protein
   router.get('/protein-search', (req, res, next) => {
     axios
-    .get (`https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.KEY_API}&minCarbs=${req.query.minProtein}&maxCarbs=${req.query.maxProtein}&number=${req.query.numOfRecepies}`)
+    .get (`https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.KEY_API}&minProtein=${req.query.minProtein}&maxProtein=${req.query.maxProtein}&number=${req.query.numOfRecepies}`)
     .then(proteinSearch=>{
       const proteins = proteinSearch.data;
       console.log(`this is carbs query ${proteins}`)
@@ -46,15 +46,31 @@ router.get('/carbs-search', (req, res, next) => {
     });
   });
 
+
+//by calories
   router.get('/calories-search', (req, res, next) => {
     axios
-    .get (`https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.KEY_API}&minCarbs=${req.query.minCalories}&maxCarbs=${req.query.maxCalories}&number=${req.query.numOfRecepies}`)
+    .get (`https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.KEY_API}&minCalories=${req.query.minCalories}&maxCalories=${req.query.maxCalories}&number=${req.query.numOfRecepies}`)
     .then(caloriesSearch=>{
       const calory = caloriesSearch.data;
       res.render("nutrition-views/findByNutrients", {calory})
     })
     .catch(error=> {
       console.log(`error while searching by calories ${error}`)
+    });
+  });
+
+//find by multi nutrients
+  router.get('/multi-search', (req, res, next) => {
+    axios
+    .get (`https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.KEY_API}&maxProtein=${req.query.maxProtein}&maxCalories=${req.query.maxCalories}&maxCarbs=${req.query.maxCarbs}&number=${req.query.numOfRecepies}`)
+    .then(proteinSearch=>{
+      const proteins = proteinSearch.data;
+      console.log(`this is carbs query ${proteins}`)
+      res.render("nutrition-views/findByNutrients", {proteins})
+    })
+    .catch(error=> {
+      console.log(`error while searching by proteins ${error}`)
     });
   });
 
@@ -78,9 +94,41 @@ router.get('/ingredients-search', (req, res, next) => {
     });
 
 
+/// find by name of food
+router.get('/foodname-search', (req, res, next) => {
+
+  axios
+  .get (`https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.KEY_API}&query=${req.query.foodName}&number=${req.query.numOfRecepies}`)
+  .then(foodSerach=>{
+    const food = foodSerach.data;
+    res.render("nutrition-views/findByNutrients", {food})
+  })
+  .catch(error=> {
+    console.log(`error while searching by calories ${error}`)
+  });
+});
+
+//combined calories and food
+router.get('/foodcalorie-search', (req, res, next) => {
+
+  axios
+  .get (`https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.KEY_API}&query=${req.query.foodName}&maxCalories=${req.query.calories}&number=${req.query.numOfRecepies}`)
+  .then(foodSerach=>{
+    const caloriesAndFood = foodSerach.data;
+    res.render("nutrition-views/findByNutrients", {caloriesAndFood})
+  })
+  .catch(error=> {
+    console.log(`error while searching by calories ${error}`)
+  });
+});
+
+
+
+
+
+
 
 //details for each recepie
-
 router.get('/recepies/:id', (req, res, next) => {
     axios
     .get (`https://api.spoonacular.com/recipes/${req.params.id}/information?apiKey=${process.env.KEY_API}`)
