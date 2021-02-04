@@ -6,7 +6,7 @@ const router = express.Router();
 //random recepie on nutrition page
 router.get('/nutrition', (req, res, next) => {
   axios
-  .get (`https://api.spoonacular.com/recipes/random?apiKey=${process.env.KEY_API2}&number=1`)
+  .get (`https://api.spoonacular.com/recipes/random?apiKey=${process.env.KEY_API3}&number=1`)
   .then(randomRecepie=>{
     const recipe = randomRecepie.data;
     console.log(`random recepie----> ${recipe}`)
@@ -21,7 +21,7 @@ router.get('/nutrition', (req, res, next) => {
 //find by carbs
 router.get('/carbs-search', (req, res, next) => {
     axios
-    .get (`https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.KEY_API2}&minCarbs=${req.query.minCarbs}&maxCarbs=${req.query.maxCarbs}&number=${req.query.numOfRecepies}`)
+    .get (`https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.KEY_API3}&minCarbs=${req.query.minCarbs}&maxCarbs=${req.query.maxCarbs}&number=${req.query.numOfRecepies}`)
     .then(carbSearch=>{
       const carbs = carbSearch.data;
       console.log(`this is carbs query ${carbs}`)
@@ -35,7 +35,7 @@ router.get('/carbs-search', (req, res, next) => {
 //by protein
   router.get('/protein-search', (req, res, next) => {
     axios
-    .get (`https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.KEY_API2}&minProtein=${req.query.minProtein}&maxProtein=${req.query.maxProtein}&number=${req.query.numOfRecepies}`)
+    .get (`https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.KEY_API3}&minProtein=${req.query.minProtein}&maxProtein=${req.query.maxProtein}&number=${req.query.numOfRecepies}`)
     .then(proteinSearch=>{
       const proteins = proteinSearch.data;
       console.log(`this is carbs query ${proteins}`)
@@ -50,7 +50,7 @@ router.get('/carbs-search', (req, res, next) => {
 //by calories
   router.get('/calories-search', (req, res, next) => {
     axios
-    .get (`https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.KEY_API2}&minCalories=${req.query.minCalories}&maxCalories=${req.query.maxCalories}&number=${req.query.numOfRecepies}`)
+    .get (`https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.KEY_API3}&minCalories=${req.query.minCalories}&maxCalories=${req.query.maxCalories}&number=${req.query.numOfRecepies}`)
     .then(caloriesSearch=>{
       const calory = caloriesSearch.data;
       res.render("nutrition-views/findByNutrients", {calory})
@@ -63,7 +63,7 @@ router.get('/carbs-search', (req, res, next) => {
 //find by multi nutrients
   router.get('/multi-search', (req, res, next) => {
     axios
-    .get (`https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.KEY_API2}&maxProtein=${req.query.maxProtein}&maxCalories=${req.query.maxCalories}&maxCarbs=${req.query.maxCarbs}&number=${req.query.numOfRecepies}`)
+    .get (`https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.KEY_API3}&maxProtein=${req.query.maxProtein}&maxCalories=${req.query.maxCalories}&maxCarbs=${req.query.maxCarbs}&number=${req.query.numOfRecepies}`)
     .then(multiSearch=>{
       const multiNutrients = multiSearch.data;
       console.log(`this is carbs query ${multiNutrients}`)
@@ -82,7 +82,7 @@ router.get('/ingredients-search', (req, res, next) => {
     console.log(`New variable for ingredients ---> ${allIngredients}`)
     
       axios
-      .get (`https://api.spoonacular.com/recipes/findByIngredients?apiKey=${process.env.KEY_API2}&ingredients=${allIngredients}&number=${req.query.numOfRecepies}`)
+      .get (`https://api.spoonacular.com/recipes/findByIngredients?apiKey=${process.env.KEY_API3}&ingredients=${allIngredients}&number=${req.query.numOfRecepies}`)
       .then(ingredientsSearch=>{
         const ingredients = ingredientsSearch.data;
         console.log(ingredients)
@@ -98,7 +98,7 @@ router.get('/ingredients-search', (req, res, next) => {
 router.get('/foodname-search', (req, res, next) => {
 
   axios
-  .get (`https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.KEY_API2}&query=${req.query.foodName}&number=${req.query.numOfRecepies}`)
+  .get (`https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.KEY_API3}&query=${req.query.foodName}&number=${req.query.numOfRecepies}`)
   .then(foodSerach=>{
     const food = foodSerach.data;
     res.render("nutrition-views/findByNutrients", {food})
@@ -112,7 +112,7 @@ router.get('/foodname-search', (req, res, next) => {
 router.get('/foodcalorie-search', (req, res, next) => {
 
   axios
-  .get (`https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.KEY_API2}&query=${req.query.foodName}&maxCalories=${req.query.calories}&number=${req.query.numOfRecepies}`)
+  .get (`https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.KEY_API3}&query=${req.query.foodName}&maxCalories=${req.query.calories}&number=${req.query.numOfRecepies}`)
   .then(foodSerach=>{
     const caloriesAndFood = foodSerach.data;
     res.render("nutrition-views/findByNutrients", {caloriesAndFood})
@@ -131,7 +131,7 @@ router.get('/foodcalorie-search', (req, res, next) => {
 //details for each recepie
 router.get('/recepies/:id', (req, res, next) => {
     axios
-    .get (`https://api.spoonacular.com/recipes/${req.params.id}/information?apiKey=${process.env.KEY_API2}`)
+    .get (`https://api.spoonacular.com/recipes/${req.params.id}/information?apiKey=${process.env.KEY_API3}`)
     .then(recepieDetail=>{
       const recepie = recepieDetail.data;
       console.log(recepie)
@@ -143,9 +143,33 @@ router.get('/recepies/:id', (req, res, next) => {
   
   });
 
+  router.get('/recepies/:id/ingredients', (req, res, next) => {
+    axios
+    .get (`https://api.spoonacular.com/recipes/${req.params.id}/information?apiKey=${process.env.KEY_API3}`)
+    .then(recepieDetail=>{
+      const recepie = recepieDetail.data;
+      console.log(recepie)
+      res.render("nutrition-views/ingredients", {recepie})
+    })
+    .catch(error=> {
+      console.log(`error while getting details for recepie  ${error}`)
+    });
+  
+  });
 
-
-
+  router.get('/recepies/:id/instructions', (req, res, next) => {
+    axios
+    .get (`https://api.spoonacular.com/recipes/${req.params.id}/information?apiKey=${process.env.KEY_API3}`)
+    .then(recepieDetail=>{
+      const recepie = recepieDetail.data;
+      console.log(recepie)
+      res.render("nutrition-views/instructions", {recepie})
+    })
+    .catch(error=> {
+      console.log(`error while getting details for recepie  ${error}`)
+    });
+  
+  });
 
 
 
