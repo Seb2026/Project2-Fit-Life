@@ -1,82 +1,255 @@
-<a href="/">BACK TO YOUR PROFILE</a>
-<a href="/nutrition">BACK TO SEARCH</a>
+<section id="portfolio" class="portfolio new-container">
+      <div class="container">
 
+ {{#if carbs.results}}
 
-{{#if carbs.results}}
+        <div class="section-title" data-aos="fade-up">
+          <h2>Your search results by carbs</h2>
+          <p>{{carbs.results.length}} recepies, from lowest to higest carb amount:</p>
+        </div>
 
-<h2>YOUR SEARCH RESULTS BY CARBS:</h2>
-<h3>There are {{carbs.totalResults}} results.</h3>
-<p>We are showing you {{carbs.results.length}}, from lowest to higest carb amount:</p>
+        {{!-- <div class="row" data-aos="fade-up" data-aos-delay="100">
+          <div class="col-lg-12">
+            <ul id="portfolio-flters">
+              <li data-filter="*" class="filter-active">All</li>
+              <li data-filter=".filter-app">App</li>
+              <li data-filter=".filter-card">Card</li>
+              <li data-filter=".filter-web">Web</li>
+            </ul>
+          </div>
+        </div> --}}
+
+        <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
 
 {{#each carbs.results}}
-<div>
-  <h4> <a href="/recepies/{{id}}"> {{title}}</a> </h4>
-  <img src="{{image}}" alt="{{title}}">
-</div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item">
+            <div class="portfolio-wrap">
+              <img src="{{image}}" class="img-fluid" alt="{{title}}">
+              <div class="portfolio-links">
+                <a href="{{image}}" class="venobox" title="{{title}}"><i class="icofont-plus-circle"></i></a>
+                <a href="/recepies/{{id}}" title="More Details"><i class="icofont-link"></i></a>
+              </div>
+              <div class="portfolio-info">
+                <h4>{{title}}</h4>
+              </div>
+            </div>
+          </div>
+ 
+ 
 {{/each}}
 
+
 {{/if}}
+
 
 {{#if proteins.results}}
 
-<h2>YOUR SEARCH RESULTS BY PROTEIN:</h2>
-<h3>There are {{proteins.totalResults}} results.</h3>
-<p>We are showing you {{proteins.results.length}}, from lowest to higest protein amount:</p>
+        <div class="section-title" data-aos="fade-up">
+          <h2>Your search results by protein</h2>
+          <p>{{protein.results.length}} recepies, from lowest to higest protein amount:</p>
+        </div>
+
+        {{!-- <div class="row" data-aos="fade-up" data-aos-delay="100">
+          <div class="col-lg-12">
+            <ul id="portfolio-flters">
+              <li data-filter="*" class="filter-active">All</li>
+              <li data-filter=".filter-app">App</li>
+              <li data-filter=".filter-card">Card</li>
+              <li data-filter=".filter-web">Web</li>
+            </ul>
+          </div>
+        </div> --}}
+
+        <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
 
 {{#each proteins.results}}
-<div>
-  <h4> <a href="/recepies/{{id}}"> {{title}}</a> </h4>
-  <img src="{{image}}" alt="{{title}}">
-</div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item">
+            <div class="portfolio-wrap">
+              <img src="{{image}}" class="img-fluid" alt="{{title}}">
+              <div class="portfolio-links">
+                <a href="{{image}}" class="venobox" title="{{title}}"><i class="icofont-plus-circle"></i></a>
+                <a href="/recepies/{{id}}" title="More Details"><i class="icofont-link"></i></a>
+              </div>
+              <div class="portfolio-info">
+                <h4>{{title}}</h4>
+              </div>
+            </div>
+          </div>
+ 
+ 
 {{/each}}
 
-{{/if}}
 
+{{/if}}
 
 {{#if calory.results}}
 
-<h2>YOUR SEARCH RESULTS BY CALORIES:</h2>
-<h3>There are {{calory.totalResults}} results.</h3>
-<p>We are showing you {{calory.results.length}}, from lowest to highest calorie amount:</p>
+        <div class="section-title" data-aos="fade-up">
+          <h2>Your search results by calories</h2>
+          <p>{{calory.results.length}} recepies, from lowest to higest calory amount:</p>
+        </div>
+
+        {{!-- <div class="row" data-aos="fade-up" data-aos-delay="100">
+          <div class="col-lg-12">
+            <ul id="portfolio-flters">
+              <li data-filter="*" class="filter-active">All</li>
+              <li data-filter=".filter-app">App</li>
+              <li data-filter=".filter-card">Card</li>
+              <li data-filter=".filter-web">Web</li>
+            </ul>
+          </div>
+        </div> --}}
+
+        <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
 
 {{#each calory.results}}
-<div>
-  <h4> <a href="/recepies/{{id}}"> {{title}}</a> </h4>
-  <img src="{{image}}" alt="{{title}}">
-</div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item">
+            <div class="portfolio-wrap">
+              <img src="{{image}}" class="img-fluid" alt="{{title}}">
+              <div class="portfolio-links">
+                <a href="{{image}}" class="venobox" title="{{title}}"><i class="icofont-plus-circle"></i></a>
+                <a href="/recepies/{{id}}" title="More Details"><i class="icofont-link"></i></a>
+              </div>
+              <div class="portfolio-info">
+                <h4>{{title}}</h4>
+              </div>
+            </div>
+          </div>
+ 
+ 
 {{/each}}
+
 
 {{/if}}
 
+{{#if multiNutrients.results}}
 
-{{#if food.results}}
+        <div class="section-title" data-aos="fade-up">
+          <h2>Your search results by nutrients</h2>
+          <p>{{multiNutrients.results.length}} recepies:</p>
+        </div>
 
-<h2>YOUR SEARCH RESULTS BY FOOD:</h2>
-<h3>There are {{food.totalResults}} results.</h3>
-<p>We are showing you {{food.results.length}}:</p>
+        {{!-- <div class="row" data-aos="fade-up" data-aos-delay="100">
+          <div class="col-lg-12">
+            <ul id="portfolio-flters">
+              <li data-filter="*" class="filter-active">All</li>
+              <li data-filter=".filter-app">App</li>
+              <li data-filter=".filter-card">Card</li>
+              <li data-filter=".filter-web">Web</li>
+            </ul>
+          </div>
+        </div> --}}
 
-{{#each food.results}}
-<div>
-  <h4> <a href="/recepies/{{id}}"> {{title}}</a> </h4>
-  <img src="{{image}}" alt="{{title}}">
-</div>
+        <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
+
+{{#each multiNutrients.results}}
+
+          <div class="col-lg-4 col-md-6 portfolio-item">
+            <div class="portfolio-wrap">
+              <img src="{{image}}" class="img-fluid" alt="{{title}}">
+              <div class="portfolio-links">
+                <a href="{{image}}" class="venobox" title="{{title}}"><i class="icofont-plus-circle"></i></a>
+                <a href="/recepies/{{id}}" title="More Details"><i class="icofont-link"></i></a>
+              </div>
+              <div class="portfolio-info">
+                <h4>{{title}}</h4>
+              </div>
+            </div>
+          </div>
+ 
+ 
 {{/each}}
 
+
 {{/if}}
+
 
 {{#if caloriesAndFood.results}}
 
-<h2>YOUR SEARCH RESULTS BY FOOD:</h2>
-<h3>There are {{caloriesAndFood.totalResults}} results.</h3>
-<p>We are showing you {{caloriesAndFood.results.length}}, from lowest to highest calorie amount:</p>
+        <div class="section-title" data-aos="fade-up">
+          <h2>Your search results by nutrients</h2>
+          <p>{{caloriesAndFood.results.length}} recepies:</p>
+        </div>
+
+        {{!-- <div class="row" data-aos="fade-up" data-aos-delay="100">
+          <div class="col-lg-12">
+            <ul id="portfolio-flters">
+              <li data-filter="*" class="filter-active">All</li>
+              <li data-filter=".filter-app">App</li>
+              <li data-filter=".filter-card">Card</li>
+              <li data-filter=".filter-web">Web</li>
+            </ul>
+          </div>
+        </div> --}}
+
+        <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
 
 {{#each caloriesAndFood.results}}
-<div>
-  <h4> <a href="/recepies/{{id}}"> {{title}}</a> </h4>
-  <img src="{{image}}" alt="{{title}}">
-</div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item">
+            <div class="portfolio-wrap">
+              <img src="{{image}}" class="img-fluid" alt="{{title}}">
+              <div class="portfolio-links">
+                <a href="{{image}}" class="venobox" title="{{title}}"><i class="icofont-plus-circle"></i></a>
+                <a href="/recepies/{{id}}" title="More Details"><i class="icofont-link"></i></a>
+              </div>
+              <div class="portfolio-info">
+                <h4>{{title}}</h4>
+              </div>
+            </div>
+          </div>
+ 
+ 
 {{/each}}
 
+
 {{/if}}
+
+{{#if ingredients}}
+
+        <div class="section-title" data-aos="fade-up">
+          <h2>Your search results by nutrients</h2>
+          <p>{{ingredients.length}} recepies:</p>
+        </div>
+
+        {{!-- <div class="row" data-aos="fade-up" data-aos-delay="100">
+          <div class="col-lg-12">
+            <ul id="portfolio-flters">
+              <li data-filter="*" class="filter-active">All</li>
+              <li data-filter=".filter-app">App</li>
+              <li data-filter=".filter-card">Card</li>
+              <li data-filter=".filter-web">Web</li>
+            </ul>
+          </div>
+        </div> --}}
+
+        <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
+
+{{#each ingredients}}
+
+          <div class="col-lg-4 col-md-6 portfolio-item">
+            <div class="portfolio-wrap">
+              <img src="{{image}}" class="" alt="{{title}}">
+              <div class="portfolio-links">
+                <a href="{{image}}" class="" title="{{title}}"><i class="icofont-plus-circle"></i></a>
+                <a href="/recepies/{{id}}" title="More Details"><i class="icofont-link"></i></a>
+              </div>
+              <div class="portfolio-info">
+                <h4>{{title}}</h4>
+              </div>
+            </div>
+          </div>
+ 
+ 
+{{/each}}
+
+
+{{/if}}
+      </div>
+    </section>
+
 
 
