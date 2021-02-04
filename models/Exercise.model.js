@@ -13,9 +13,6 @@ const exerciseSchema = new Schema(
     howToDoIt: {
       type: String,
     },
-    exerciseImg: {
-        type: String,
-    },
     userid: [
       { type: Schema.Types.ObjectId, ref: 'User' }
     ]
