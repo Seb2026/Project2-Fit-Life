@@ -1,17 +1,35 @@
-<h2>Login Page</h2>
+<section id="contact" class="contact" >
+    <div class="container">
 
-<form action="login" method="post">
-<label>Username:
-    <input type="text" name="username" placeholder="Enter Username">
-</label>
+    <div class="section-title" data-aos="fade-up">
+        <h2>Login</h2>
+    </div>
 
-<label>Password:
-    <input type="password" name="password" placeholder="******">
-</label>
+    <div class="row signupform">
 
-<button>Login</button>
+        <div class="col-lg-5 mt-5 mt-lg-0 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
+        <div role="form" class="php-email-form">
 
-{{#if errorMessage}}
-    <p>{{ errorMessage }}</p>
-{{/if}}
-</form>
+            <form action="login" method="post">
+            <div class="form-group">
+                <label>Username:
+                    <input type="text" name="username" class="form-control" placeholder="Enter Username">
+                </label>
+
+                <label>Password:
+                    <input type="password" name="password" class="form-control" placeholder="******">
+                </label>
+            </div>
+    
+            <button class="text-center">Login</button>
+
+            {{#if errorMessage}}
+                <p>{{ errorMessage }}</p>
+            {{/if}}
+            </form>
+        </div>
+
+    </div>
+
+    </div>
+</section>
