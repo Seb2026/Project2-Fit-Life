@@ -1,20 +1,36 @@
-<h2>Update Weight</h2>
 
-<form action="/update-weight" method="post">
-  <h4>Current weight: {{userInSession.weight}}</h4>  
-  <br>
-  <label>Weight is the same
-        <input type="checkbox" value="true" name="isWeightSame" >
-  </label>
+<section id="contact" class="contact" >
+  <div class="container">
 
-  <br>
-  <label>Updated weight:
-      <input type="number" name="weight">
-  </label>
+  <div class="section-title" data-aos="fade-up">
+      <h2>Update Weight</h2>
+  </div>
 
-  <br>
+  <div class="row signupform">
 
-  <button>Save</button>  
+      <div class="col-lg-5 mt-5 mt-lg-0 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
+      <div role="form" class="php-email-form">
 
+          <form action="/update-weight" method="post">
+          <h4>Current weight: {{ userInSession.weight }}</h4>
+          <br>
+          <div class="form-group">
+              <label>Weight is the same
+                    <input type="checkbox" value="true" name="isWeightSame" >
+              </label>
+              <br>
+              <br>
+              <label>Updated weight:
+                  <input type="number" name="weight">
+              </label>
+          </div>
+  
+          <button class="text-center">Save</button>
 
-</form>
+          </form>
+      </div>
+
+  </div>
+
+  </div>
+</section>
