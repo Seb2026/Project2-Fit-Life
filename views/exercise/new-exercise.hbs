@@ -1,14 +1,16 @@
 
-<form action="/exercise/create" method="POST">
-<label>name
-  <input type="text" name="exerciseName" placeholder="exercise name"> 
-  </label> <br>
-  <label>Targeted Body Part
-<input type="text" name="targetedBodyPart" placeholder="targeted body part"> 
-  </label><br>
-  <label> How to do it
-  <textarea name="howToDoIt" placeholder="how to do it" cols='20' rows='10'></textarea> <br>
-  </label><br>
-  <button type="submit">Save new Exercise</button>
+<div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
+            <div role="form" class="php-email-form">
 
-</form>
+              <form action="/exercise/create" method="post">
+                <label>Add an exercise</label>
+      
+                  <div class="searchBar">
+                    <input type="text" name='exerciseName' placeholder="exercise name" min="1" class="form-control" > 
+                    <input type="text" name='targetedBodyPart' placeholder="targeted body part" min="1" class="form-control" > 
+                    <input id='howToDoIt' type="text" name='howToDoIt' placeholder="how to do it" cols='20' rows='10' class="form-control" > 
+                    <input type="reset" value="reset">
+                    <button type="submit">Save new Exercise</button>
+                  </div>
+              </form>
+              
