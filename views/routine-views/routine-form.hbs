@@ -1,4 +1,4 @@
-<h2>Create new Routine:</h2>
+{{!-- <h2>Create new Routine:</h2>
 
 <form action="/routine/create" method="POST">
 
@@ -77,4 +77,95 @@
 
 <button type='submit'>Save</button>
 
-</form>
+</form> --}}
+
+
+
+ <section id="contact" class="contact" >
+      <div class="container">
+
+        <div class="section-title" data-aos="fade-up">
+          <h2>New exercise</h2>
+        </div>
+
+        <div class="row signupform">
+
+          <div class="col-lg-5 mt-5 mt-lg-0 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
+            <div role="form" class="php-email-form">
+
+              <form action="/exercise/create" method="post">
+              <div class="form-group">
+                    <label> Name:
+                        <input type="text" name="name" class="form-control">
+                    </label>
+                    
+                    <label> Type of Training:
+                        <select name="typeOfTraining" multiple class="form-control">
+
+                    <option value="Speed&Power">Speed & Power</option>
+                    <option value="Resistance">Resistance</option>
+                    <option value="HIIT">HIIT</option>
+                    <option value="Circuit">Circuit</option>
+
+                        </select>   
+                    </label>
+
+                    <label> Exercises:
+                        <select name="exercises" multiple class="form-control">
+                            {{#each findExercises}}
+                                <option value="{{id}}">{{exerciseName}}</option>
+                            {{/each}}
+                        </select>
+                    </label>
+
+                    <label> Intensity:
+                        <select name="intensity" class="form-control">
+
+                            <option value="low">low</option>
+                            <option value="medium">medium</option>
+                            <option value="high">high</option>
+
+                        </select>   
+
+
+                    </label>
+
+                    <label> Amount Of Weights:
+                        <input type="number" name="amountOfWeight" placeholder="lbs" min='1' class="form-control">
+                    </label>
+
+                    <label> Number Of Sets:
+                        <input type="number" name="numberOfSets" min='1' class="form-control">
+                    </label>
+
+                    <label> Number Of Reps:
+                        <input type="number" name="numberOfReps" min='1' class="form-control">
+                    </label>
+
+                    <label> Additional Equipment:
+                        <input type="text" name="additionalEquipment" class="form-control">
+                    </label>
+
+                    <label> Time In Between Sets:
+                        <input type="number" name="timeInBetweenSets" min='0' placeholder="sec" class="form-control">
+                    </label>
+
+
+
+
+
+
+
+
+
+                </div>
+      
+                        <button type='submit'>Save</button>
+
+              </form>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
