@@ -1,12 +1,39 @@
-<h2>You have {{allExercises.length}} exercises in your database:</h2>
+{{!-- <h2>You have {{allExercises.length}} exercises in your database:</h2>
 
 
 <ul>
   {{#each allExercises}}
-    <li>{{ exerciseName }}</li>
+    <li>{{ exerciseName }} : index {{inc @index}}</li>
     <a href="/exercise/{{id}}">Details</a>
       <form action="/exercise/{{_id}}/delete" method="POST">
         <button>Delete</button>
     <a href="/exercise/{{id}}/edit">Edit </a> 
   {{/each}}
-</ul>
+</ul> --}}
+
+
+
+<section id="faq" class="faq section-bg">
+      <div class="container">
+
+        <div class="section-title" data-aos="fade-up">
+          <h2>You have {{allExercises.length}} exercises in your database:</h2>
+        </div>
+
+        <ul class="faq-list">
+          {{#each allExercises}}
+
+            <li data-aos="fade-up" data-aos-delay="{{inc @key}}00">
+            <a data-bs-toggle="collapse" data-bs-target="#faq{{inc @key}}" class="collapsed">{{exerciseName}} <i class="icofont-simple-up"></i></a>
+            <div id="faq{{inc @key}}" class="collapse" data-bs-parent=".faq-list">
+                  <a href="/exercise/{{id}}">Details</a>
+                  <form action="/exercise/{{_id}}/delete" method="POST">
+                  <a href="/exercise/{{id}}/edit">Edit </a> 
+                  <button class="btn btn-primary get-started logoutbutton">Delete</button>
+            </div>
+          </li>
+        {{/each}}
+        </ul>
+
+      </div>
+    </section> 
