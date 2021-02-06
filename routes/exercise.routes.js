@@ -31,7 +31,7 @@ exerciseRouter.get("/exercise", (req, res, next) => {
   
   Exercise.find({userid: req.session.currentUser._id})
     .then((allExercises) => {
-      res.render("exercise/exercise", { allExercises });
+      res.render("exercise/exercise", { allExercises});
     })
     .catch((err) => console.log("Err while getting all exercises: ", err));
 
