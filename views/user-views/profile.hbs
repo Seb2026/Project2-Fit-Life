@@ -1,20 +1,27 @@
-<h2>Test profile page after logging in</h2>
+
 <br>
 <br>
 {{#if userInSession}}
-    <p>Welcome to your fitness journey {{userInSession.username}}</p>
+<section id="contact" class="contact" >
+      <div class="container">
 
-    <p>Current weight: {{userInSession.weight}}</p>
-    
-    <p>MOTIVATIONAL QUOTE: {{randomQuote.text}} <br>Author:{{randomQuote.author}}</p>
+        <div class="section-title" data-aos="fade-up">
+          <h1>Welcome to your fitness journey, {{userInSession.username}}</h1>
+        </div>
+        <div class="row signupform">
 
- 
-    
+          <div class="col-lg-5 mt-5 mt-lg-0 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
+            <div role="form" class="php-email-form">
+                <p>Current weight: {{userInSession.weight}}</p>
+  <p> MOTIVATIONAL QUOTE:{{randomQuote.text}} <br>-{{randomQuote.author}}</p>
+<br>
+<a href="/profile">Click for a new quote</a>
+          </div>
+
+        </div>
+
+      </div>
+</section>
 {{else}}
     <h3>No user found!</h3>
 {{/if}}
-
-<br>
-
-<br>
-<a href="/profile">Test refresh!</a>

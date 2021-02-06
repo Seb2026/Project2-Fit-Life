@@ -17,3 +17,41 @@
   <button type="submit">Save Updated Exercise</button>
 
 </form>
+
+
+ <section id="contact" class="contact" >
+      <div class="container">
+
+        <div class="section-title" data-aos="fade-up">
+          <h2>{{foundExercise.exerciseName}}</h2>
+        </div>
+
+        <div class="row signupform">
+
+          <div class="col-lg-5 mt-5 mt-lg-0 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
+            <div role="form" class="php-email-form">
+
+              <form action="/exercise/create" method="post">
+              <div class="form-group">
+                    <label>name
+                      <input type="text" name="exerciseName" placeholder="exercise name" class="form-control"> 
+                    </label> 
+                    
+                    <label>Targeted Body Part
+                      <input type="text" name="targetedBodyPart" placeholder="targeted body part" class="form-control"> 
+                    </label>
+
+                    <label> How to do it
+                      <textarea name="howToDoIt" placeholder="how to do it" cols='20' rows='10' class="form-control"></textarea> 
+                    </label>
+                </div>
+      
+                 <button type="submit">Save new Exercise</button>
+
+              </form>
+          </div>
+
+        </div>
+
+      </div>
+</section>
