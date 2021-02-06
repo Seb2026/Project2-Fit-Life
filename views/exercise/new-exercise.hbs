@@ -1,52 +1,16 @@
-{{!-- 
-<form action="/exercise/create" method="POST">
-<label>name
-  <input type="text" name="exerciseName" placeholder="exercise name"> 
-  </label> <br>
-  <label>Targeted Body Part
-<input type="text" name="targetedBodyPart" placeholder="targeted body part"> 
-  </label><br>
-  <label> How to do it
-  <textarea name="howToDoIt" placeholder="how to do it" cols='20' rows='10'></textarea> <br>
-  </label><br>
-  <button type="submit">Save new Exercise</button>
 
-</form> --}}
-
-
- <section id="contact" class="contact" >
-      <div class="container">
-
-        <div class="section-title" data-aos="fade-up">
-          <h2>New exercise</h2>
-        </div>
-
-        <div class="row signupform">
-
-          <div class="col-lg-5 mt-5 mt-lg-0 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
+<div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
             <div role="form" class="php-email-form">
 
               <form action="/exercise/create" method="post">
-              <div class="form-group">
-                    <label>name
-                      <input type="text" name="exerciseName" placeholder="exercise name" class="form-control"> 
-                    </label> 
-                    
-                    <label>Targeted Body Part
-                      <input type="text" name="targetedBodyPart" placeholder="targeted body part" class="form-control"> 
-                    </label>
-
-                    <label> How to do it
-                      <textarea name="howToDoIt" placeholder="how to do it" cols='20' rows='10' class="form-control"></textarea> 
-                    </label>
-                </div>
+                <label>Add an exercise</label>
       
-                 <button type="submit">Save new Exercise</button>
-
+                  <div class="searchBar">
+                    <input type="text" name='exerciseName' placeholder="exercise name" min="1" class="form-control" > 
+                    <input type="text" name='targetedBodyPart' placeholder="targeted body part" min="1" class="form-control" > 
+                    <input id='howToDoIt' type="text" name='howToDoIt' placeholder="how to do it" cols='20' rows='10' class="form-control" > 
+                    <input type="reset" value="reset">
+                    <button type="submit">Save new Exercise</button>
+                  </div>
               </form>
-          </div>
-
-        </div>
-
-      </div>
-    </section>
+              
