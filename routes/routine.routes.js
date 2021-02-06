@@ -34,6 +34,7 @@ router.post("/routine/create", (req, res, next)=>{
 //GET TO DISPLAY ALL ROUTINES:
 router.get('/routine', (req, res, next) => {
     Routine.find({ userid: req.session.currentUser._id})
+    .populate("exercises")
     .then(allRoutinesFromDB => {
         res.render('routine-views/routine-list', { allRoutinesFromDB })
     })
@@ -60,7 +61,7 @@ router.get("/routine/:id/edit", (req, res, next)=>{
     .then(foundRoutine => {
 
         
-        Exercise.find()
+        Exercise.find({userid: req.session.currentUser._id})
         .then((allExercises) => { 
             allExercises.forEach(oneExercise => {
                 foundRoutine.exercises.forEach(exercise => {
