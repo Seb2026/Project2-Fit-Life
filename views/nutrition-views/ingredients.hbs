@@ -7,7 +7,11 @@
 
           <h2>{{recepie.title}}</h2>
           <p>You need {{recepie.extendedIngredients.length}} ingredients for this recepie</p>
-         <a href="/recepies/{{recepie.id}}" class="btn-get-started scrollto">{{recepie.title}}</a>
+          <div>
+            <a href="/recepies/{{recepie.id}}"><button class="btn btn-primary logoutbutton" id='backtorecepie'>Back to details</button></a>
+          <a href="/recepies/{{recepie.id}}/instructions"><button class="btn btn-primary logoutbutton" id='backtorecepie'>See the instructions</button></a>
+          </div>
+          
         </div>
 
         <ol class="faq-list">
