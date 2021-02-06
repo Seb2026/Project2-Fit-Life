@@ -1,4 +1,4 @@
-<h2>Edit {{foundRoutine.name}} routine:</h2>
+{{!-- <h2>Edit {{foundRoutine.name}} routine:</h2>
 
 <form action="/routine/{{foundRoutine.id}}/edit" method="POST">
 
@@ -81,4 +81,85 @@
 
 <button type='submit'>Save</button>
 
-</form>
+</form> --}}
+
+
+
+<section id="contact" class="contact" >
+      <div class="container">
+
+        <div class="section-title" data-aos="fade-up">
+          <h2>Edit {{foundRoutine.name}} routine:</h2>
+        </div>
+
+        <div class="row signupform">
+
+          <div class="col-lg-5 mt-5 mt-lg-0 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
+            <div role="form" class="php-email-form">
+
+              <form action="/routine/{{foundRoutine.id}}/edit" method="post">
+              <div class="form-group">
+                   <label> Name:
+                        <input type="text" name="name" value="{{foundRoutine.name}}" class="form-control">
+                    </label>
+
+                    <label> Type of Training:
+                        <select name="typeOfTraining" class="form-control">
+                            <option selected value="{{foundRoutine.typeOfTraining}}">{{foundRoutine.typeOfTraining}}</option>  
+                            <option  value="{{filteredValues.[0]}}">{{filteredValues.[0]}}</option>  
+                            <option  value="{{filteredValues.[1]}}">{{filteredValues.[1]}}</option>  
+                            <option  value="{{filteredValues.[2]}}">{{filteredValues.[2]}}</option>  
+                        </select>   
+                    </label>
+
+                    <label> Exercises:
+                        <select name="exercises" multiple class="form-control">
+                            {{#each allExercises}}
+                            {{#if isInRoutine}}
+                                <option selected value="{{id}}">{{exerciseName}}</option>
+                                {{else}}
+                                <option value="{{id}}">{{exerciseName}}</option>
+                            {{/if}}
+                            {{/each}}
+                        </select>
+                    </label>
+
+                    <label> Intensity:
+                        <select name="intensity" class="form-control">
+                            <option selected value="{{foundRoutine.intensity}}">{{foundRoutine.intensity}}</option>  
+                            <option  value="{{filteredIntensityValues.[0]}}">{{filteredIntensityValues.[0]}}</option>  
+                            <option  value="{{filteredIntensityValues.[1]}}">{{filteredIntensityValues.[1]}}</option>  
+                        </select>   
+                    </label>
+
+                    <label> Amount Of Weights:
+                        <input type="number" name="amountOfWeight" placeholder="lbs" min='1' value="{{foundRoutine.amountOfWeight}}" class="form-control">
+                    </label>
+
+                    <label> Number Of Sets:
+                        <input type="number" name="numberOfSets" min='1' value="{{foundRoutine.numberOfSets}}" class="form-control">
+                    </label>
+
+                    <label> Number Of Reps:
+                        <input type="number" name="numberOfReps" min='1' value="{{foundRoutine.numberOfReps}}" class="form-control">
+                    </label>
+
+                    <label> Additional Equipment:
+                        <input type="text" name="additionalEquipment" value="{{foundRoutine.additionalEquipment}}" class="form-control">
+                    </label>
+
+                    <label> Time In Between Sets:
+                        <input type="number" name="timeInBetweenSets" min='0' placeholder="sec" value="{{foundRoutine.timeInBetweenSets}}" class="form-control">
+                    </label>
+
+                 </div>
+      
+                 <button class="text-center">Save</button>
+
+              </form>
+          </div>
+
+        </div>
+
+      </div>
+</section>

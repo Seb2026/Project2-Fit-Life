@@ -1,4 +1,4 @@
-<h2>You have created {{allRoutinesFromDB.length}} routines:</h2>
+{{!-- <h2>You have created {{allRoutinesFromDB.length}} routines:</h2>
 
 <div>
 
@@ -19,6 +19,52 @@
 
 </div>
 
-<a href="/routine/new">Create new Routine</a>
+<a href="/routine/new">Create new Routine</a> --}}
 
 
+<section id="faq" class="faq section-bg">
+      <div class="container">
+
+        <div class="section-title" data-aos="fade-up">
+          <h2>You have created {{allRoutinesFromDB.length}} routines:</h2>
+        </div>
+
+        <ul class="faq-list">
+          {{#each allRoutinesFromDB}}
+
+            <li data-aos="fade-up" data-aos-delay="{{inc @key}}00">
+            <a data-bs-toggle="collapse" data-bs-target="#faq{{inc @key}}" class="collapsed">{{name}}<i class="icofont-simple-up"></i></a>
+            <div id="faq{{inc @key}}" class="collapse" data-bs-parent=".faq-list">
+            <ul>
+                <li>Type of training: {{typeOfTraining}}</li>
+                <li>
+                    <ol>Exercises:
+                    {{#each exercises}}
+                        <li><a href="/exercise/{{id}}">{{exerciseName}}</a>
+                            <p>Targeted body part: {{targetedBodyPart}}</p>
+                        </li>
+                
+                    {{/each}}
+                    </ol>
+                </li>
+                <li>Intensity:  {{intensity}}</li>
+                <li>Amount of weight:{{amountOfWeight}}</li>
+                <li>Number of sets: {{numberOfSets}}</li>
+                <li>Number of reps:{{numberOfReps}}</li>
+                <li>Aditional equipment: {{additionalEquipment}}</li>
+                <li>Time in between sets: {{timeInBetweenSets}}</li>
+                <li>CREATED: {{created}}</li>
+            </ul>
+                <form action="/routine/{{id}}/edit" method="get">
+                    <button class="btn btn-primary get-started logoutbutton">Edit</button>
+                </form> 
+                <form action="/routine/{{id}}/delete" method="POST">
+                    <button type="submit" class="btn btn-primary get-started logoutbutton">Delete</button>
+                </form>
+            </div>
+          </li>
+        {{/each}}
+        </ul>
+
+      </div>
+    </section> 

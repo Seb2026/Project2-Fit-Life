@@ -1,4 +1,4 @@
-<h2>Edit: {{foundExercise.exerciseName}} </h2>
+{{!-- <h2>Edit: {{foundExercise.exerciseName}} </h2>
 
 <form action="/exercise/{{foundExercise.id}}/edit" method="POST">
 
@@ -16,7 +16,7 @@
   <br>
   <button type="submit">Save Updated Exercise</button>
 
-</form>
+</form> --}}
 
 
  <section id="contact" class="contact" >
@@ -31,22 +31,22 @@
           <div class="col-lg-5 mt-5 mt-lg-0 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
             <div role="form" class="php-email-form">
 
-              <form action="/exercise/create" method="post">
+              <form action="/exercise/{{foundExercise.id}}/edit" method="post">
               <div class="form-group">
                     <label>name
-                      <input type="text" name="exerciseName" placeholder="exercise name" class="form-control"> 
+                      <input type="text" name="exerciseName" placeholder="exercise name" value='{{foundExercise.exerciseName}}' class="form-control"> 
                     </label> 
                     
                     <label>Targeted Body Part
-                      <input type="text" name="targetedBodyPart" placeholder="targeted body part" class="form-control"> 
+                      <input type="text" name="targetedBodyPart" placeholder="targeted body part"value='{{foundExercise.targetedBodyPart}}' class="form-control"> 
                     </label>
 
                     <label> How to do it
-                      <textarea name="howToDoIt" placeholder="how to do it" cols='20' rows='10' class="form-control"></textarea> 
+                      <input type= 'textarea' name="howToDoIt" placeholder="how to do it" cols='20' rows='10'value='{{foundExercise.howToDoIt}}' class="form-control">
                     </label>
                 </div>
       
-                 <button type="submit">Save new Exercise</button>
+                 <button class="text-center">Update</button>
 
               </form>
           </div>
