@@ -12,7 +12,7 @@ router.get("/routine/new", (req, res, next) => {
     
 Exercise.find({userid: req.session.currentUser._id})
     .then(findExercises=> {
-        res.render("routine-views/routine-form", {findExercises})})
+        res.render("routine-views/routine-form", {findExercises} )})
     .catch(err=>console.log(`Error while trying to find exercise from DB: ${err}`))
 });
 

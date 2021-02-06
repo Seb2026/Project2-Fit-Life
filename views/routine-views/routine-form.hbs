@@ -85,7 +85,7 @@
       <div class="container">
 
         <div class="section-title" data-aos="fade-up">
-          <h2>New exercise</h2>
+          <h2>New Routine</h2>
         </div>
 
         <div class="row signupform">
@@ -93,7 +93,7 @@
           <div class="col-lg-5 mt-5 mt-lg-0 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
             <div role="form" class="php-email-form">
 
-              <form action="/exercise/create" method="post">
+              <form action="/routine/create" method="post">
               <div class="form-group">
                     <label> Name:
                         <input type="text" name="name" class="form-control">
@@ -111,7 +111,7 @@
                     </label>
 
                     <label> Exercises:
-                        <select name="exercises" multiple class="form-control">
+                        <select name="exercises" multiple class="form-control" >
                             {{#each findExercises}}
                                 <option value="{{id}}">{{exerciseName}}</option>
                             {{/each}}
