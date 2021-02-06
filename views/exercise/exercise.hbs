@@ -24,11 +24,13 @@
           {{#each allExercises}}
 
             <li data-aos="fade-up" data-aos-delay="{{inc @key}}00">
-            <a data-bs-toggle="collapse" data-bs-target="#faq{{inc @key}}" class="collapsed">{{exerciseName}} <i class="icofont-simple-up"></i></a>
+            <a data-bs-toggle="collapse" data-bs-target="#faq{{inc @key}}" class="collapsed">{{exerciseName}}<i class="icofont-simple-up"></i></a>
             <div id="faq{{inc @key}}" class="collapse" data-bs-parent=".faq-list">
-                  <a href="/exercise/{{id}}">Details</a>
-                  <form action="/exercise/{{_id}}/delete" method="POST">
-                  <a href="/exercise/{{id}}/edit">Edit </a> 
+                  <p>This exercise targets: {{targetedBodyPart}}</p>
+                  <p>How to perform this exercise: {{howToDoIt}}</p>
+                  <form action="/exercise/{{_id}}/edit" method="get">
+                  <button class="btn btn-primary get-started logoutbutton">Edit</button> 
+                  <form action="/exercise/{{_id}}/delete" method="POST"></form>
                   <button class="btn btn-primary get-started logoutbutton">Delete</button>
             </div>
           </li>
