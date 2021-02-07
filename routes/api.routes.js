@@ -2,9 +2,11 @@ const { default: axios } = require('axios');
 const express = require('express');
 const router = express.Router();
 
+const routeGuard = require(`../configs/route-guard.config`);
+
 
 //random recepie on nutrition page
-router.get('/nutrition', (req, res, next) => {
+router.get('/nutrition', routeGuard , (req, res, next) => {
   axios
   .get (`https://api.spoonacular.com/recipes/random?apiKey=${process.env.KEY_API}&number=1`)
   .then(randomRecepie=>{
@@ -19,7 +21,7 @@ router.get('/nutrition', (req, res, next) => {
 
 
 //find by carbs
-router.get('/carbs-search', (req, res, next) => {
+router.get('/carbs-search', routeGuard , (req, res, next) => {
     axios
     .get (`https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.KEY_API}&minCarbs=${req.query.minCarbs}&maxCarbs=${req.query.maxCarbs}&number=${req.query.numOfRecepies}`)
     .then(carbSearch=>{
@@ -33,7 +35,7 @@ router.get('/carbs-search', (req, res, next) => {
   });
 
 //by protein
-  router.get('/protein-search', (req, res, next) => {
+  router.get('/protein-search', routeGuard , (req, res, next) => {
     axios
     .get (`https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.KEY_API}&minProtein=${req.query.minProtein}&maxProtein=${req.query.maxProtein}&number=${req.query.numOfRecepies}`)
     .then(proteinSearch=>{
@@ -61,7 +63,7 @@ router.get('/carbs-search', (req, res, next) => {
   });
 
 //find by multi nutrients
-  router.get('/multi-search', (req, res, next) => {
+  router.get('/multi-search', routeGuard , (req, res, next) => {
     axios
     .get (`https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.KEY_API}&maxProtein=${req.query.maxProtein}&maxCalories=${req.query.maxCalories}&maxCarbs=${req.query.maxCarbs}&number=${req.query.numOfRecepies}`)
     .then(multiSearch=>{
@@ -76,7 +78,7 @@ router.get('/carbs-search', (req, res, next) => {
 
 
 //find by ingredients
-router.get('/ingredients-search', (req, res, next) => {
+router.get('/ingredients-search', routeGuard , (req, res, next) => {
 
     let allIngredients = req.query.ingredients.split(',').join(',+');
     console.log(`New variable for ingredients ---> ${allIngredients}`)
@@ -95,7 +97,7 @@ router.get('/ingredients-search', (req, res, next) => {
 
 
 /// find by name of food
-router.get('/foodname-search', (req, res, next) => {
+router.get('/foodname-search', routeGuard, (req, res, next) => {
 
   axios
   .get (`https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.KEY_API}&query=${req.query.foodName}&number=${req.query.numOfRecepies}`)
@@ -109,7 +111,7 @@ router.get('/foodname-search', (req, res, next) => {
 });
 
 //combined calories and food
-router.get('/foodcalorie-search', (req, res, next) => {
+router.get('/foodcalorie-search', routeGuard , (req, res, next) => {
 
   axios
   .get (`https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.KEY_API}&query=${req.query.foodName}&maxCalories=${req.query.calories}&number=${req.query.numOfRecepies}`)
@@ -129,7 +131,7 @@ router.get('/foodcalorie-search', (req, res, next) => {
 
 
 //details for each recepie
-router.get('/recepies/:id', (req, res, next) => {
+router.get('/recepies/:id', routeGuard, (req, res, next) => {
     axios
     .get (`https://api.spoonacular.com/recipes/${req.params.id}/information?apiKey=${process.env.KEY_API}`)
     .then(recepieDetail=>{
@@ -143,7 +145,7 @@ router.get('/recepies/:id', (req, res, next) => {
   
   });
 
-  router.get('/recepies/:id/ingredients', (req, res, next) => {
+  router.get('/recepies/:id/ingredients', routeGuard , (req, res, next) => {
     axios
     .get (`https://api.spoonacular.com/recipes/${req.params.id}/information?apiKey=${process.env.KEY_API}`)
     .then(recepieDetail=>{
@@ -157,7 +159,7 @@ router.get('/recepies/:id', (req, res, next) => {
   
   });
 
-  router.get('/recepies/:id/instructions', (req, res, next) => {
+  router.get('/recepies/:id/instructions', routeGuard, (req, res, next) => {
     axios
     .get (`https://api.spoonacular.com/recipes/${req.params.id}/information?apiKey=${process.env.KEY_API}`)
     .then(recepieDetail=>{

@@ -4,8 +4,9 @@ const exerciseRouter = express.Router();
 
 const Exercise = require("../models/Exercise.model");
 const User = require("../models/User.model");
+const routeGuard = require(`../configs/route-guard.config`);
 
-exerciseRouter.get("/exercise/new", (req, res, next) => {
+exerciseRouter.get("/exercise/new", routeGuard , (req, res, next) => {
   // views/celebrities/new-celebrity.hbs => physical path to the file
   // in res.render() we never have '/'
   res.render("exercise/new-exercise");
@@ -27,7 +28,7 @@ exerciseRouter.post("/exercise/create", (req, res, next) => {
     .catch((err) => console.log("Err while creating new exercise: ", err));
 });
 
-exerciseRouter.get("/exercise", (req, res, next) => {
+exerciseRouter.get("/exercise", routeGuard , (req, res, next) => {
   
   Exercise.find({userid: req.session.currentUser._id})
     .then((allExercises) => {
@@ -37,7 +38,7 @@ exerciseRouter.get("/exercise", (req, res, next) => {
 
 });
 // edit
-exerciseRouter.get("/exercise/:id/edit", (req, res, next) => {
+exerciseRouter.get("/exercise/:id/edit", routeGuard, (req, res, next) => {
   
   Exercise.findById(req.params.id)
     .then((foundExercise) => {
@@ -68,7 +69,7 @@ exerciseRouter.post("/exercise/:id/delete", (req, res, next) => {
     .catch((err) => console.log("Error while deleting an exercise: ", err));
 });
 
-exerciseRouter.get("/exercise/:id", (req, res, next) => {
+exerciseRouter.get("/exercise/:id", routeGuard, (req, res, next) => {
   Exercise.findById(req.params.id).then((exerciseDetails) => {
     res.render("exercise/details-exercise", { exerciseDetails });
   });

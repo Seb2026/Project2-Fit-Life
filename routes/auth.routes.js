@@ -8,6 +8,7 @@ const bcryptjs = require(`bcryptjs`);
 const User = require(`../models/User.model`);
 
 const saltRounds = 10;
+const routeGuard = require(`../configs/route-guard.config`);
 
 //create route to render signup hbs page that has form to sign up
 router.get(`/signup`, (req, res, next) => {
