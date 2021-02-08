@@ -42,7 +42,7 @@ router.post(`/update-weight`, (req, res, next) => {
     });
 });
 
-router.get(`/update-weight`, (req,res,next) => {
+router.get(`/update-weight`, routeGuard , (req,res,next) => {
     res.render(`user-views/update-weight`);
 });
 

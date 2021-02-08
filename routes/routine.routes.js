@@ -4,11 +4,12 @@ const router  = express.Router();
 const Routine = require ('../models/Routine.model');
 const Exercise = require ('../models/Exercise.model');
 const User = require ('../models/User.model')
+const routeGuard = require(`../configs/route-guard.config`);
 
 const { VirtualType } = require('mongoose');
 
 //GET FORM 
-router.get("/routine/new", (req, res, next) => {
+router.get("/routine/new",routeGuard, (req, res, next) => {
     
 Exercise.find({userid: req.session.currentUser._id})
     .then(findExercises=> {
@@ -32,8 +33,9 @@ router.post("/routine/create", (req, res, next)=>{
 })
 
 //GET TO DISPLAY ALL ROUTINES:
-router.get('/routine', (req, res, next) => {
+router.get('/routine', routeGuard , (req, res, next) => {
     Routine.find({ userid: req.session.currentUser._id})
+    .populate("exercises")
     .then(allRoutinesFromDB => {
         res.render('routine-views/routine-list', { allRoutinesFromDB })
     })
@@ -53,14 +55,14 @@ router.post('/routine/:id/delete', (req, res, next)=>{
 
 
 //GET TO EDIT 
-router.get("/routine/:id/edit", (req, res, next)=>{
+router.get("/routine/:id/edit", routeGuard , (req, res, next)=>{
     
     Routine.findById(req.params.id)
     .populate("exercises")
     .then(foundRoutine => {
 
         
-        Exercise.find()
+        Exercise.find({userid: req.session.currentUser._id})
         .then((allExercises) => { 
             allExercises.forEach(oneExercise => {
                 foundRoutine.exercises.forEach(exercise => {
@@ -108,7 +110,7 @@ router.post('/routine/:id/edit', (req, res, next) =>{
 
 
   //GET TO DISPLAY DETAILS OF EACH ROUTINE
-router.get("/routine/:id", (req, res, next)=>{
+router.get("/routine/:id", routeGuard , (req, res, next)=>{
     Routine.findById(req.params.id)
     .populate('exercises')
     .then(routineDetails => {
