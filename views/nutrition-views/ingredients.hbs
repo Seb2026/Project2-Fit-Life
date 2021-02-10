@@ -16,9 +16,10 @@
 
         <ol class="faq-list">
         
-{{#each recipe.extendedIngredients}}
-          <li data-aos="" data-aos-delay="">
-            <a data-bs-toggle="collapse" class="" data-bs-target="#faq3">{{name}}<i class=""></i></a>
+
+{{#each recepie.extendedIngredients}}
+          <li >
+            <a data-bs-toggle="collapse" class="" data-bs-target="#faq3">{{name}}</a>
             <div id="faq3" data-bs-parent=".faq-list">
             
                <p>amount: {{original}}</p> 
