@@ -151,6 +151,8 @@ router.get('/recepies/:id', routeGuard, (req, res, next) => {
     .then(recepieDetail=>{
       const recepie = recepieDetail.data;
       console.log(recepie)
+
+  
       res.render("nutrition-views/ingredients", {recepie})
     })
     .catch(error=> {
