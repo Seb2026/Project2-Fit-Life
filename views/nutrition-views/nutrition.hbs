@@ -17,8 +17,10 @@
                        
               <div class="address">
                 <i class="icofont-spoon-and-fork"></i>
+
                 <h4><a href="/recepies/{{id}}">{{title}}</a></h4>
                 <p>Recepie of the day</p>
+
               </div>
 
 
@@ -37,12 +39,12 @@
             <div role="form" class="php-email-form">
 
               <form action="/carbs-search" method="get">
-                <label>Find recepies by nutrients</label>
+                <label>Find recipes by nutrients</label>
       
                   <div class="searchBar">
                     <input type="number" name='minCarbs' placeholder="min carbs" min="1" class="form-control" > 
                     <input type="number" name='maxCarbs' placeholder="max carbs" min="1" class="form-control" > 
-                    <input id='howManuRecepies' type="number" name='numOfRecepies' placeholder="How many recepies" min="1" class="form-control" > 
+                    <input id='howManuRecipes' type="number" name='numOfRecipes' placeholder="How many recipes" min="1" class="form-control" > 
                     <input type="reset" value="reset">
                     <button class="text-center">Search by carbs</button>
                   </div>
@@ -53,7 +55,7 @@
                 <div class="searchBar">
                   <input type="number" name='minProtein' placeholder="min protein" min="1" class="form-control" >
                   <input type="number" name='maxProtein' placeholder="max protein" min="1" class="form-control" >
-                  <input id='howManuRecepies' type="number" name='numOfRecepies' placeholder="How many recepies" min="1" class="form-control" > 
+                  <input id='howManuRecipes' type="number" name='numOfRecipes' placeholder="How many recipes" min="1" class="form-control" > 
                   <input type="reset" value="reset">
                   <button class="text-center">Search by protein</button>
                 </div> 
@@ -64,7 +66,7 @@
                 <div class="searchBar">
                 <input type="number" name='minCalories' placeholder="min calories" min="1" class="form-control" >
                 <input type="number" name='maxCalories' placeholder="max calories" min="1" class="form-control" >
-                <input type="number" name='numOfRecepies' placeholder="How many recepies" min="1" id='howManuRecepies' class="form-control">
+                <input type="number" name='numOfRecipes' placeholder="How many recipes" min="1" id='howManuRecipes' class="form-control">
                 <input type="reset" value="reset">
                 <button class="text-center">Search by calories</button>
                 </div>
@@ -76,7 +78,7 @@
                     <input type="number" name='maxCalories' placeholder="max calories" min="1" class="form-control" >
                     <input type="number" name='maxProtein' placeholder="max protein" min="1" class="form-control" >
                     <input type="number" name='maxCarbs' placeholder="max carbs" min="1" class="form-control" >
-                    <input type="number" name='numOfRecepies' placeholder="How many recepies" min="1" class="form-control" id='howManuRecepies'>
+                    <input type="number" name='numOfRecipes' placeholder="How many recipes" min="1" class="form-control" id='howManuRecipes'>
                
                     <input type="reset" value="reset">
                     <button class="text-center">Search nutrients</button>
@@ -85,22 +87,22 @@
              
                   
                   <form action="/foodcalorie-search" method="get">
-                    <label>Find recepies by food</label>
+                    <label>Find recipes by food</label>
                       <div class="searchBar">
                         <input type="text" name='foodName' placeholder="eg. burger" class="form-control" >
                         <input type="number" name='calories' placeholder="max calories" min="1" class="form-control">
-                        <input type="number" name='numOfRecepies' placeholder="How many recepies" min="1" class="form-control" id='howManuRecepies'>
+                        <input type="number" name='numOfRecipes' placeholder="How many recipes" min="1" class="form-control" id='howManuRecipes'>
                         <input type="reset" value="reset">
-                        <button class="text-center">Search by food & calores</button>
+                        <button class="text-center">Search by food & calories</button>
                       </div>
                       </form>
                     <div>
 
                       <form action="/ingredients-search" method="get">
-                        <label>Find recepies by ingredients</label>
+                        <label>Find recipes by ingredients</label>
                           <div class="searchBar" id='findByIngredients'>
                             <input type="text" name='ingredients' placeholder="eg. apples,flour" class="form-control" >
-                            <input type="number" name='numOfRecepies' placeholder="How many recepies" min="1" class="form-control" id='howManuRecepies'>
+                            <input type="number" name='numOfRecipes' placeholder="How many recipes" min="1" class="form-control" id='howManuRecipes'>
                             <input type="reset" value="reset">
                             <button class="text-center">Search by ingredients</button>
                           </div>

@@ -4,24 +4,24 @@
 
         <div class="row justify-content-between">
           <div class="col-lg-5 d-flex row align-items-center justify-content-center about-img">
-            <img src="{{recepie.image}}" class="img-fluid" alt="{{recepie.title}}" data-aos="zoom-in">
+            <img src="{{recipe.image}}" class="img-fluid" alt="{{recipe.title}}" data-aos="zoom-in">
 
           </div>
           <div class="col-lg-6 pt-5 pt-lg-0">
-            <h3 data-aos="fade-up">{{recepie.title}}</h3>
+            <h3 data-aos="fade-up">{{recipe.title}}</h3>
             <p data-aos="fade-up" data-aos-delay="100">
-            {{{recepie.summary}}}
+            {{{recipe.summary}}}
             </p>
             <div class="row">
               <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
                 <i class="bx bx-receipt"></i>
                 <h4>Ingredients </h4>
-                <p>Full list of ingredients for {{recepie.servings}}-people-serving-size, you can find <a href="/recepies/{{recepie.id}}/ingredients">here</a>.</p>
+                <p>Full list of ingredients for {{recipe.servings}}-people-serving-size, you can find <a href="/recipes/{{recipe.id}}/ingredients">here</a>.</p>
               </div>
               <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
                 <i class="bx bx-cube-alt"></i>
                 <h4>Instructions</h4>
-                <p>This recepie is done in {{recepie.readyInMinutes}} minutes. If you are interesed in making this recepie, click <a href="/recepies/{{recepie.id}}/instructions">here</a> .</p>
+                <p>This recipe is done in {{recipe.readyInMinutes}} minutes. If you are interested in making this recipe, click <a href="/recipes/{{recipe.id}}/instructions">here</a> .</p>
               </div>
 
             </div>
@@ -37,31 +37,31 @@
 
 
 
-{{!-- <h2>{{recepie.title}}</h2>
+{{!-- <h2>{{recipe.title}}</h2>
 
-<img src="{{recepie.image}}" alt="{{recepie.title}}">
+<img src="{{recipe.image}}" alt="{{recipe.title}}">
 
 
 <h3>SUMMARY:</h3>
- <p>{{{recepie.summary}}}</p>
+ <p>{{{recipe.summary}}}</p>
 
 
-{{# if recepie.instructions}}
+{{# if recipe.instructions}}
 <h3>INSTRUCTIONS: </h3>
-<p>{{{recepie.instructions}}}</p>
+<p>{{{recipe.instructions}}}</p>
 {{/if}}
 
 
-<p>Weight Watcher Smart Points: {{recepie.weightWatcherSmartPoints}}</p>
+<p>Weight Watcher Smart Points: {{recipe.weightWatcherSmartPoints}}</p>
 
 
-{{#if recepie.cuisines}}
-<p>CUISINE: {{recepie.cuisines}}  </p>
+{{#if recipe.cuisines}}
+<p>CUISINE: {{recipe.cuisines}}  </p>
 {{/if}}
 
 <h3>INGREDIENTS:</h3>
 <ul> 
-{{#each recepie.extendedIngredients}}
+{{#each recipe.extendedIngredients}}
 <li>{{name}}</li>
 <p>- amount:{{original}}</p>
 {{/each}}
