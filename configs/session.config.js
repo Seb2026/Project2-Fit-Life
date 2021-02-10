@@ -12,8 +12,8 @@ module.exports = (app) => {
             secret: process.env.SESSION_SECRET,
             resave: true,
             saveUninitialized: false,
-            cookie: {
-                maxAge: 300000 // 300  * 1000 ms  => 5 mins
+            cookie: { 
+                maxAge: 3600000 // 1 hour
             },
             store: new MongoStore({
                 mongooseConnection: mongoose.connection,

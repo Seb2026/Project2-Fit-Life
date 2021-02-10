@@ -29,9 +29,11 @@
                   <p>This exercise targets: {{targetedBodyPart}}</p>
                   <p>How to perform this exercise: {{howToDoIt}}</p>
                   <form action="/exercise/{{_id}}/edit" method="get">
-                  <button class="btn btn-primary get-started logoutbutton">Edit</button> 
-                  <form action="/exercise/{{_id}}/delete" method="POST"></form>
-                  <button class="btn btn-primary get-started logoutbutton">Delete</button>
+                    <button class="btn btn-primary get-started logoutbutton">Edit</button> 
+                  </form>
+                  <form action="/exercise/{{_id}}/delete" method="POST">
+                    <button class="btn btn-primary get-started logoutbutton">Delete</button>
+                  </form>
             </div>
           </li>
         {{/each}}
